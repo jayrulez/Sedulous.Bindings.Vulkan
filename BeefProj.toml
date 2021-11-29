@@ -1,0 +1,6 @@
+FileVersion = 1
+
+[Project]
+Name = "Sedulous.Bindings.Vulkan"
+TargetType = "BeefLib"
+StartupObject = "Sedulous.Bindings.Vulkan.Program"

@@ -1,0 +1,5 @@
+FileVersion = 1
+Projects = {"Sedulous.Bindings.Vulkan" = {Path = "."}, VulkanTriangle = {Path = "../VulkanTriangle"}}
+
+[Workspace]
+StartupProject = "VulkanTriangle"
