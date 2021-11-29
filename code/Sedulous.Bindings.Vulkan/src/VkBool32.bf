@@ -29,6 +29,14 @@ namespace Sedulous.Bindings.Vulkan
 		{
 		    Value = value;
 		}
+		/// <summary>
+		/// Constructs a new <see cref="VkBool32"/> with the given raw value. 
+		/// </summary>
+		/// <param name="value"></param>
+		public this(bool value)
+		{
+		    Value = value ? 1 : 0;
+		}
 
 		/// <summary>
 		/// Returns whether another <see cref="VkBool32"/> value is considered equal to this one.
