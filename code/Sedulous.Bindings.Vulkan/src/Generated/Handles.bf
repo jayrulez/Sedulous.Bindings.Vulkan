@@ -444,6 +444,19 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkPerformanceConfigurationINTEL h) => Handle == h.Handle;
 	}
 
+	public struct VkBufferCollectionFUCHSIA : IEquatable<VkBufferCollectionFUCHSIA>
+	{
+		public readonly uint64 Handle;
+		public this(uint64 existingHandle) { Handle = existingHandle; }
+		public static VkBufferCollectionFUCHSIA Null => VkBufferCollectionFUCHSIA(0);
+		public static implicit operator VkBufferCollectionFUCHSIA(uint64 handle) => VkBufferCollectionFUCHSIA(handle);
+		public static bool operator ==(VkBufferCollectionFUCHSIA left, VkBufferCollectionFUCHSIA right) => left.Handle == right.Handle;
+		public static bool operator !=(VkBufferCollectionFUCHSIA left, VkBufferCollectionFUCHSIA right) => left.Handle != right.Handle;
+		public static bool operator ==(VkBufferCollectionFUCHSIA left, uint64 right) => left.Handle == right;
+		public static bool operator !=(VkBufferCollectionFUCHSIA left, uint64 right) => left.Handle != right;
+		public bool Equals(VkBufferCollectionFUCHSIA h) => Handle == h.Handle;
+	}
+
 	public struct VkDeferredOperationKHR : IEquatable<VkDeferredOperationKHR>
 	{
 		public readonly uint64 Handle;
