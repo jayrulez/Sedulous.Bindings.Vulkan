@@ -1445,18 +1445,6 @@ namespace Sedulous.Bindings.Vulkan
 			=> vkGetShaderInfoAMD_ptr(device, pipeline, shaderStage, infoType, pInfoSize, pInfo);
 
 		[CallingConvention(VulkanNative.CallConv)]
-		private static function void vkCmdBeginRenderingKHRFunction(VkCommandBuffer commandBuffer, VkRenderingInfoKHR* pRenderingInfo);
-		private static vkCmdBeginRenderingKHRFunction vkCmdBeginRenderingKHR_ptr;
-		public static void vkCmdBeginRenderingKHR(VkCommandBuffer commandBuffer, VkRenderingInfoKHR* pRenderingInfo)
-			=> vkCmdBeginRenderingKHR_ptr(commandBuffer, pRenderingInfo);
-
-		[CallingConvention(VulkanNative.CallConv)]
-		private static function void vkCmdEndRenderingKHRFunction(VkCommandBuffer commandBuffer);
-		private static vkCmdEndRenderingKHRFunction vkCmdEndRenderingKHR_ptr;
-		public static void vkCmdEndRenderingKHR(VkCommandBuffer commandBuffer)
-			=> vkCmdEndRenderingKHR_ptr(commandBuffer);
-
-		[CallingConvention(VulkanNative.CallConv)]
 		private static function VkResult vkCreateStreamDescriptorSurfaceGGPFunction(VkInstance instance, VkStreamDescriptorSurfaceCreateInfoGGP* pCreateInfo, VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface);
 		private static vkCreateStreamDescriptorSurfaceGGPFunction vkCreateStreamDescriptorSurfaceGGP_ptr;
 		public static VkResult vkCreateStreamDescriptorSurfaceGGP(VkInstance instance, VkStreamDescriptorSurfaceCreateInfoGGP* pCreateInfo, VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface)
@@ -2597,36 +2585,6 @@ namespace Sedulous.Bindings.Vulkan
 			=> vkGetSemaphoreZirconHandleFUCHSIA_ptr(device, pGetZirconHandleInfo, pZirconHandle);
 
 		[CallingConvention(VulkanNative.CallConv)]
-		private static function VkResult vkCreateBufferCollectionFUCHSIAFunction(VkDevice device, VkBufferCollectionCreateInfoFUCHSIA* pCreateInfo, VkAllocationCallbacks* pAllocator, VkBufferCollectionFUCHSIA* pCollection);
-		private static vkCreateBufferCollectionFUCHSIAFunction vkCreateBufferCollectionFUCHSIA_ptr;
-		public static VkResult vkCreateBufferCollectionFUCHSIA(VkDevice device, VkBufferCollectionCreateInfoFUCHSIA* pCreateInfo, VkAllocationCallbacks* pAllocator, VkBufferCollectionFUCHSIA* pCollection)
-			=> vkCreateBufferCollectionFUCHSIA_ptr(device, pCreateInfo, pAllocator, pCollection);
-
-		[CallingConvention(VulkanNative.CallConv)]
-		private static function VkResult vkSetBufferCollectionImageConstraintsFUCHSIAFunction(VkDevice device, VkBufferCollectionFUCHSIA collection, VkImageConstraintsInfoFUCHSIA* pImageConstraintsInfo);
-		private static vkSetBufferCollectionImageConstraintsFUCHSIAFunction vkSetBufferCollectionImageConstraintsFUCHSIA_ptr;
-		public static VkResult vkSetBufferCollectionImageConstraintsFUCHSIA(VkDevice device, VkBufferCollectionFUCHSIA collection, VkImageConstraintsInfoFUCHSIA* pImageConstraintsInfo)
-			=> vkSetBufferCollectionImageConstraintsFUCHSIA_ptr(device, collection, pImageConstraintsInfo);
-
-		[CallingConvention(VulkanNative.CallConv)]
-		private static function VkResult vkSetBufferCollectionBufferConstraintsFUCHSIAFunction(VkDevice device, VkBufferCollectionFUCHSIA collection, VkBufferConstraintsInfoFUCHSIA* pBufferConstraintsInfo);
-		private static vkSetBufferCollectionBufferConstraintsFUCHSIAFunction vkSetBufferCollectionBufferConstraintsFUCHSIA_ptr;
-		public static VkResult vkSetBufferCollectionBufferConstraintsFUCHSIA(VkDevice device, VkBufferCollectionFUCHSIA collection, VkBufferConstraintsInfoFUCHSIA* pBufferConstraintsInfo)
-			=> vkSetBufferCollectionBufferConstraintsFUCHSIA_ptr(device, collection, pBufferConstraintsInfo);
-
-		[CallingConvention(VulkanNative.CallConv)]
-		private static function void vkDestroyBufferCollectionFUCHSIAFunction(VkDevice device, VkBufferCollectionFUCHSIA collection, VkAllocationCallbacks* pAllocator);
-		private static vkDestroyBufferCollectionFUCHSIAFunction vkDestroyBufferCollectionFUCHSIA_ptr;
-		public static void vkDestroyBufferCollectionFUCHSIA(VkDevice device, VkBufferCollectionFUCHSIA collection, VkAllocationCallbacks* pAllocator)
-			=> vkDestroyBufferCollectionFUCHSIA_ptr(device, collection, pAllocator);
-
-		[CallingConvention(VulkanNative.CallConv)]
-		private static function VkResult vkGetBufferCollectionPropertiesFUCHSIAFunction(VkDevice device, VkBufferCollectionFUCHSIA collection, VkBufferCollectionPropertiesFUCHSIA* pProperties);
-		private static vkGetBufferCollectionPropertiesFUCHSIAFunction vkGetBufferCollectionPropertiesFUCHSIA_ptr;
-		public static VkResult vkGetBufferCollectionPropertiesFUCHSIA(VkDevice device, VkBufferCollectionFUCHSIA collection, VkBufferCollectionPropertiesFUCHSIA* pProperties)
-			=> vkGetBufferCollectionPropertiesFUCHSIA_ptr(device, collection, pProperties);
-
-		[CallingConvention(VulkanNative.CallConv)]
 		private static function VkResult vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEIFunction(VkDevice device, VkRenderPass renderpass, VkExtent2D* pMaxWorkgroupSize);
 		private static vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEIFunction vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI_ptr;
 		public static VkResult vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI(VkDevice device, VkRenderPass renderpass, VkExtent2D* pMaxWorkgroupSize)
@@ -2709,30 +2667,6 @@ namespace Sedulous.Bindings.Vulkan
 		private static vkCmdDrawMultiIndexedEXTFunction vkCmdDrawMultiIndexedEXT_ptr;
 		public static void vkCmdDrawMultiIndexedEXT(VkCommandBuffer commandBuffer, uint32 drawCount, VkMultiDrawIndexedInfoEXT* pIndexInfo, uint32 instanceCount, uint32 firstInstance, uint32 stride, int32* pVertexOffset)
 			=> vkCmdDrawMultiIndexedEXT_ptr(commandBuffer, drawCount, pIndexInfo, instanceCount, firstInstance, stride, pVertexOffset);
-
-		[CallingConvention(VulkanNative.CallConv)]
-		private static function void vkSetDeviceMemoryPriorityEXTFunction(VkDevice device, VkDeviceMemory memory, float priority);
-		private static vkSetDeviceMemoryPriorityEXTFunction vkSetDeviceMemoryPriorityEXT_ptr;
-		public static void vkSetDeviceMemoryPriorityEXT(VkDevice device, VkDeviceMemory memory, float priority)
-			=> vkSetDeviceMemoryPriorityEXT_ptr(device, memory, priority);
-
-		[CallingConvention(VulkanNative.CallConv)]
-		private static function void vkGetDeviceBufferMemoryRequirementsKHRFunction(VkDevice device, VkDeviceBufferMemoryRequirementsKHR* pInfo, VkMemoryRequirements2* pMemoryRequirements);
-		private static vkGetDeviceBufferMemoryRequirementsKHRFunction vkGetDeviceBufferMemoryRequirementsKHR_ptr;
-		public static void vkGetDeviceBufferMemoryRequirementsKHR(VkDevice device, VkDeviceBufferMemoryRequirementsKHR* pInfo, VkMemoryRequirements2* pMemoryRequirements)
-			=> vkGetDeviceBufferMemoryRequirementsKHR_ptr(device, pInfo, pMemoryRequirements);
-
-		[CallingConvention(VulkanNative.CallConv)]
-		private static function void vkGetDeviceImageMemoryRequirementsKHRFunction(VkDevice device, VkDeviceImageMemoryRequirementsKHR* pInfo, VkMemoryRequirements2* pMemoryRequirements);
-		private static vkGetDeviceImageMemoryRequirementsKHRFunction vkGetDeviceImageMemoryRequirementsKHR_ptr;
-		public static void vkGetDeviceImageMemoryRequirementsKHR(VkDevice device, VkDeviceImageMemoryRequirementsKHR* pInfo, VkMemoryRequirements2* pMemoryRequirements)
-			=> vkGetDeviceImageMemoryRequirementsKHR_ptr(device, pInfo, pMemoryRequirements);
-
-		[CallingConvention(VulkanNative.CallConv)]
-		private static function void vkGetDeviceImageSparseMemoryRequirementsKHRFunction(VkDevice device, VkDeviceImageMemoryRequirementsKHR* pInfo, uint32* pSparseMemoryRequirementCount, VkSparseImageMemoryRequirements2* pSparseMemoryRequirements);
-		private static vkGetDeviceImageSparseMemoryRequirementsKHRFunction vkGetDeviceImageSparseMemoryRequirementsKHR_ptr;
-		public static void vkGetDeviceImageSparseMemoryRequirementsKHR(VkDevice device, VkDeviceImageMemoryRequirementsKHR* pInfo, uint32* pSparseMemoryRequirementCount, VkSparseImageMemoryRequirements2* pSparseMemoryRequirements)
-			=> vkGetDeviceImageSparseMemoryRequirementsKHR_ptr(device, pInfo, pSparseMemoryRequirementCount, pSparseMemoryRequirements);
 
 		public static void LoadFuncionPointers(VkInstance instance = default)
 		{
@@ -2981,8 +2915,6 @@ namespace Sedulous.Bindings.Vulkan
 			NativeLib.LoadFunction("vkGetImageViewHandleNVX",  out vkGetImageViewHandleNVX_ptr);
 			NativeLib.LoadFunction("vkGetImageViewAddressNVX",  out vkGetImageViewAddressNVX_ptr);
 			NativeLib.LoadFunction("vkGetShaderInfoAMD",  out vkGetShaderInfoAMD_ptr);
-			NativeLib.LoadFunction("vkCmdBeginRenderingKHR",  out vkCmdBeginRenderingKHR_ptr);
-			NativeLib.LoadFunction("vkCmdEndRenderingKHR",  out vkCmdEndRenderingKHR_ptr);
 			NativeLib.LoadFunction("vkCreateStreamDescriptorSurfaceGGP",  out vkCreateStreamDescriptorSurfaceGGP_ptr);
 			NativeLib.LoadFunction("vkGetPhysicalDeviceExternalImageFormatPropertiesNV",  out vkGetPhysicalDeviceExternalImageFormatPropertiesNV_ptr);
 			NativeLib.LoadFunction("vkGetMemoryWin32HandleNV",  out vkGetMemoryWin32HandleNV_ptr);
@@ -3173,11 +3105,6 @@ namespace Sedulous.Bindings.Vulkan
 			NativeLib.LoadFunction("vkGetMemoryZirconHandlePropertiesFUCHSIA",  out vkGetMemoryZirconHandlePropertiesFUCHSIA_ptr);
 			NativeLib.LoadFunction("vkImportSemaphoreZirconHandleFUCHSIA",  out vkImportSemaphoreZirconHandleFUCHSIA_ptr);
 			NativeLib.LoadFunction("vkGetSemaphoreZirconHandleFUCHSIA",  out vkGetSemaphoreZirconHandleFUCHSIA_ptr);
-			NativeLib.LoadFunction("vkCreateBufferCollectionFUCHSIA",  out vkCreateBufferCollectionFUCHSIA_ptr);
-			NativeLib.LoadFunction("vkSetBufferCollectionImageConstraintsFUCHSIA",  out vkSetBufferCollectionImageConstraintsFUCHSIA_ptr);
-			NativeLib.LoadFunction("vkSetBufferCollectionBufferConstraintsFUCHSIA",  out vkSetBufferCollectionBufferConstraintsFUCHSIA_ptr);
-			NativeLib.LoadFunction("vkDestroyBufferCollectionFUCHSIA",  out vkDestroyBufferCollectionFUCHSIA_ptr);
-			NativeLib.LoadFunction("vkGetBufferCollectionPropertiesFUCHSIA",  out vkGetBufferCollectionPropertiesFUCHSIA_ptr);
 			NativeLib.LoadFunction("vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI",  out vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI_ptr);
 			NativeLib.LoadFunction("vkCmdSubpassShadingHUAWEI",  out vkCmdSubpassShadingHUAWEI_ptr);
 			NativeLib.LoadFunction("vkCmdBindInvocationMaskHUAWEI",  out vkCmdBindInvocationMaskHUAWEI_ptr);
@@ -3192,10 +3119,6 @@ namespace Sedulous.Bindings.Vulkan
 			NativeLib.LoadFunction("vkCmdSetColorWriteEnableEXT",  out vkCmdSetColorWriteEnableEXT_ptr);
 			NativeLib.LoadFunction("vkCmdDrawMultiEXT",  out vkCmdDrawMultiEXT_ptr);
 			NativeLib.LoadFunction("vkCmdDrawMultiIndexedEXT",  out vkCmdDrawMultiIndexedEXT_ptr);
-			NativeLib.LoadFunction("vkSetDeviceMemoryPriorityEXT",  out vkSetDeviceMemoryPriorityEXT_ptr);
-			NativeLib.LoadFunction("vkGetDeviceBufferMemoryRequirementsKHR",  out vkGetDeviceBufferMemoryRequirementsKHR_ptr);
-			NativeLib.LoadFunction("vkGetDeviceImageMemoryRequirementsKHR",  out vkGetDeviceImageMemoryRequirementsKHR_ptr);
-			NativeLib.LoadFunction("vkGetDeviceImageSparseMemoryRequirementsKHR",  out vkGetDeviceImageSparseMemoryRequirementsKHR_ptr);
 		}
 	}
 }
