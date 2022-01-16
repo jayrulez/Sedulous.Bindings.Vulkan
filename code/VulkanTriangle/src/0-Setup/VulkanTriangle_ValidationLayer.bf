@@ -4,23 +4,20 @@ namespace VulkanTriangle
 {
 	extension VulkanTriangle
 	{
-		[CallingConvention(.Stdcall)]
-		public static function VkBool32 DebugCallbackDelegate(VkDebugUtilsMessageSeverityFlagsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageType, VkDebugUtilsMessengerCallbackDataEXT pCallbackData, void* pUserData);
+		typealias DebugCallbackDelegate = function VkBool32 (VkDebugUtilsMessageSeverityFlagsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageType, VkDebugUtilsMessengerCallbackDataEXT pCallbackData, void* pUserData);
 		public static DebugCallbackDelegate CallbackDelegate = => DebugCallback;
 
-		[CallingConvention(.Stdcall)]
-		private static function VkResult vkCreateDebugUtilsMessengerEXTDelegate(VkInstance instance, VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo, VkAllocationCallbacks* pAllocator, VkDebugUtilsMessengerEXT* pMessenger);
+		typealias vkCreateDebugUtilsMessengerEXTDelegate = function VkResult (VkInstance instance, VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo, VkAllocationCallbacks* pAllocator, VkDebugUtilsMessengerEXT* pMessenger);
 		private static vkCreateDebugUtilsMessengerEXTDelegate vkCreateDebugUtilsMessengerEXT_ptr;
 		public static VkResult vkCreateDebugUtilsMessengerEXT(VkInstance instance, VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo, VkAllocationCallbacks* pAllocator, VkDebugUtilsMessengerEXT* pMessenger)
 			=> vkCreateDebugUtilsMessengerEXT_ptr(instance, pCreateInfo, pAllocator, pMessenger);
 
-		[CallingConvention(.Stdcall)]
-		private static function void vkDestroyDebugUtilsMessengerEXTDelegate(VkInstance instance, VkDebugUtilsMessengerEXT messenger, VkAllocationCallbacks* pAllocator);
+		typealias vkDestroyDebugUtilsMessengerEXTDelegate = function void (VkInstance instance, VkDebugUtilsMessengerEXT messenger, VkAllocationCallbacks* pAllocator);
 		private static vkDestroyDebugUtilsMessengerEXTDelegate vkDestroyDebugUtilsMessengerEXT_ptr;
 		public static void vkDestroyDebugUtilsMessengerEXT(VkInstance instance, VkDebugUtilsMessengerEXT messenger, VkAllocationCallbacks* pAllocator)
 			=> vkDestroyDebugUtilsMessengerEXT_ptr(instance, messenger, pAllocator);
 
-		private static VkDebugUtilsMessengerEXT debugMessenger;
+		private VkDebugUtilsMessengerEXT debugMessenger;
 
 		private bool CheckValidationLayerSupport()
 		{
@@ -75,14 +72,13 @@ namespace VulkanTriangle
 		[CallingConvention(.Stdcall)]
 		public static VkBool32 DebugCallback(VkDebugUtilsMessageSeverityFlagsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageType, VkDebugUtilsMessengerCallbackDataEXT pCallbackData, void* pUserData)
 		{
-			Console.WriteLine(scope $"<<Vulkan Validation Layer>> {pCallbackData.pMessage}");
+			//Console.WriteLine(scope $"<<Vulkan Validation Layer>> ");
 			return false;
 		}
 
 		private void SetupDebugMessenger()
 		{
-#if DEBUG          
-			/*
+#if DEBUG      
 				var funcPtr = VulkanNative.vkGetInstanceProcAddr(instance, "vkCreateDebugUtilsMessengerEXT");
 				if (funcPtr != null)
 				{
@@ -92,7 +88,6 @@ namespace VulkanTriangle
 					this.PopulateDebugMessengerCreateInfo(out createInfo);
 					Helpers.CheckErrors(vkCreateDebugUtilsMessengerEXT(instance, &createInfo, null, &debugMessenger));
 				}
-			*/
 #endif
 		}
 
@@ -100,7 +95,7 @@ namespace VulkanTriangle
 		{
 			createInfo = .();
 			createInfo.sType = VkStructureType.VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CREATE_INFO_EXT;
-			createInfo.messageSeverity = .VK_DEBUG_UTILS_MESSAGE_SEVERITY_VERBOSE_BIT_EXT; // | .VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT | .VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT;
+			createInfo.messageSeverity = .VK_DEBUG_UTILS_MESSAGE_SEVERITY_VERBOSE_BIT_EXT | .VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT | .VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT;
 			createInfo.messageType = .VK_DEBUG_UTILS_MESSAGE_TYPE_GENERAL_BIT_EXT | .VK_DEBUG_UTILS_MESSAGE_TYPE_PERFORMANCE_BIT_EXT | .VK_DEBUG_UTILS_MESSAGE_TYPE_VALIDATION_BIT_EXT;
 			createInfo.pfnUserCallback = CallbackDelegate;
 			createInfo.pUserData = null;

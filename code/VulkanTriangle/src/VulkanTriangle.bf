@@ -101,23 +101,7 @@ namespace VulkanTriangle
 			}
 
 			Helpers.CheckErrors(VulkanNative.vkDeviceWaitIdle(this.device));
-
-		    /*bool isClosing = false;
-		    window.FormClosing += (s, e) =>
-		    {
-		        isClosing = true;
-		    };
-
-		    while (!isClosing)
-		    {
-		        Application.DoEvents();
-
-		    }
-
-		    */
 		}
-
-		
 
 		private void CleanUp()
 		{
