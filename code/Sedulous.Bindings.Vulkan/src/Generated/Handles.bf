@@ -2,71 +2,77 @@ using System;
 
 namespace Sedulous.Bindings.Vulkan
 {
+	[CRepr]
 	public struct VkInstance : IEquatable<VkInstance>
 	{
-		public readonly uint Handle;
-		public this(uint existingHandle) { Handle = existingHandle; }
+		public readonly int Handle;
+		public this(int existingHandle) { Handle = existingHandle; }
 		public static VkInstance Null => VkInstance(0);
-		public static implicit operator VkInstance(uint handle) => VkInstance(handle);
+		public static implicit operator VkInstance(int handle) => VkInstance(handle);
 		public static bool operator ==(VkInstance left, VkInstance right) => left.Handle == right.Handle;
 		public static bool operator !=(VkInstance left, VkInstance right) => left.Handle != right.Handle;
-		public static bool operator ==(VkInstance left, uint right) => left.Handle == right;
-		public static bool operator !=(VkInstance left, uint right) => left.Handle != right;
+		public static bool operator ==(VkInstance left, int right) => left.Handle == right;
+		public static bool operator !=(VkInstance left, int right) => left.Handle != right;
 		public bool Equals(VkInstance h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkPhysicalDevice : IEquatable<VkPhysicalDevice>
 	{
-		public readonly uint Handle;
-		public this(uint existingHandle) { Handle = existingHandle; }
+		public readonly int Handle;
+		public this(int existingHandle) { Handle = existingHandle; }
 		public static VkPhysicalDevice Null => VkPhysicalDevice(0);
-		public static implicit operator VkPhysicalDevice(uint handle) => VkPhysicalDevice(handle);
+		public static implicit operator VkPhysicalDevice(int handle) => VkPhysicalDevice(handle);
 		public static bool operator ==(VkPhysicalDevice left, VkPhysicalDevice right) => left.Handle == right.Handle;
 		public static bool operator !=(VkPhysicalDevice left, VkPhysicalDevice right) => left.Handle != right.Handle;
-		public static bool operator ==(VkPhysicalDevice left, uint right) => left.Handle == right;
-		public static bool operator !=(VkPhysicalDevice left, uint right) => left.Handle != right;
+		public static bool operator ==(VkPhysicalDevice left, int right) => left.Handle == right;
+		public static bool operator !=(VkPhysicalDevice left, int right) => left.Handle != right;
 		public bool Equals(VkPhysicalDevice h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkDevice : IEquatable<VkDevice>
 	{
-		public readonly uint Handle;
-		public this(uint existingHandle) { Handle = existingHandle; }
+		public readonly int Handle;
+		public this(int existingHandle) { Handle = existingHandle; }
 		public static VkDevice Null => VkDevice(0);
-		public static implicit operator VkDevice(uint handle) => VkDevice(handle);
+		public static implicit operator VkDevice(int handle) => VkDevice(handle);
 		public static bool operator ==(VkDevice left, VkDevice right) => left.Handle == right.Handle;
 		public static bool operator !=(VkDevice left, VkDevice right) => left.Handle != right.Handle;
-		public static bool operator ==(VkDevice left, uint right) => left.Handle == right;
-		public static bool operator !=(VkDevice left, uint right) => left.Handle != right;
+		public static bool operator ==(VkDevice left, int right) => left.Handle == right;
+		public static bool operator !=(VkDevice left, int right) => left.Handle != right;
 		public bool Equals(VkDevice h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkQueue : IEquatable<VkQueue>
 	{
-		public readonly uint Handle;
-		public this(uint existingHandle) { Handle = existingHandle; }
+		public readonly int Handle;
+		public this(int existingHandle) { Handle = existingHandle; }
 		public static VkQueue Null => VkQueue(0);
-		public static implicit operator VkQueue(uint handle) => VkQueue(handle);
+		public static implicit operator VkQueue(int handle) => VkQueue(handle);
 		public static bool operator ==(VkQueue left, VkQueue right) => left.Handle == right.Handle;
 		public static bool operator !=(VkQueue left, VkQueue right) => left.Handle != right.Handle;
-		public static bool operator ==(VkQueue left, uint right) => left.Handle == right;
-		public static bool operator !=(VkQueue left, uint right) => left.Handle != right;
+		public static bool operator ==(VkQueue left, int right) => left.Handle == right;
+		public static bool operator !=(VkQueue left, int right) => left.Handle != right;
 		public bool Equals(VkQueue h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkCommandBuffer : IEquatable<VkCommandBuffer>
 	{
-		public readonly uint Handle;
-		public this(uint existingHandle) { Handle = existingHandle; }
+		public readonly int Handle;
+		public this(int existingHandle) { Handle = existingHandle; }
 		public static VkCommandBuffer Null => VkCommandBuffer(0);
-		public static implicit operator VkCommandBuffer(uint handle) => VkCommandBuffer(handle);
+		public static implicit operator VkCommandBuffer(int handle) => VkCommandBuffer(handle);
 		public static bool operator ==(VkCommandBuffer left, VkCommandBuffer right) => left.Handle == right.Handle;
 		public static bool operator !=(VkCommandBuffer left, VkCommandBuffer right) => left.Handle != right.Handle;
-		public static bool operator ==(VkCommandBuffer left, uint right) => left.Handle == right;
-		public static bool operator !=(VkCommandBuffer left, uint right) => left.Handle != right;
+		public static bool operator ==(VkCommandBuffer left, int right) => left.Handle == right;
+		public static bool operator !=(VkCommandBuffer left, int right) => left.Handle != right;
 		public bool Equals(VkCommandBuffer h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkDeviceMemory : IEquatable<VkDeviceMemory>
 	{
 		public readonly uint64 Handle;
@@ -80,6 +86,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkDeviceMemory h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkCommandPool : IEquatable<VkCommandPool>
 	{
 		public readonly uint64 Handle;
@@ -93,6 +100,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkCommandPool h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkBuffer : IEquatable<VkBuffer>
 	{
 		public readonly uint64 Handle;
@@ -106,6 +114,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkBuffer h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkBufferView : IEquatable<VkBufferView>
 	{
 		public readonly uint64 Handle;
@@ -119,6 +128,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkBufferView h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkImage : IEquatable<VkImage>
 	{
 		public readonly uint64 Handle;
@@ -132,6 +142,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkImage h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkImageView : IEquatable<VkImageView>
 	{
 		public readonly uint64 Handle;
@@ -145,6 +156,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkImageView h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkShaderModule : IEquatable<VkShaderModule>
 	{
 		public readonly uint64 Handle;
@@ -158,6 +170,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkShaderModule h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkPipeline : IEquatable<VkPipeline>
 	{
 		public readonly uint64 Handle;
@@ -171,6 +184,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkPipeline h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkPipelineLayout : IEquatable<VkPipelineLayout>
 	{
 		public readonly uint64 Handle;
@@ -184,6 +198,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkPipelineLayout h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkSampler : IEquatable<VkSampler>
 	{
 		public readonly uint64 Handle;
@@ -197,6 +212,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkSampler h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkDescriptorSet : IEquatable<VkDescriptorSet>
 	{
 		public readonly uint64 Handle;
@@ -210,6 +226,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkDescriptorSet h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkDescriptorSetLayout : IEquatable<VkDescriptorSetLayout>
 	{
 		public readonly uint64 Handle;
@@ -223,6 +240,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkDescriptorSetLayout h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkDescriptorPool : IEquatable<VkDescriptorPool>
 	{
 		public readonly uint64 Handle;
@@ -236,6 +254,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkDescriptorPool h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkFence : IEquatable<VkFence>
 	{
 		public readonly uint64 Handle;
@@ -249,6 +268,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkFence h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkSemaphore : IEquatable<VkSemaphore>
 	{
 		public readonly uint64 Handle;
@@ -262,6 +282,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkSemaphore h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkEvent : IEquatable<VkEvent>
 	{
 		public readonly uint64 Handle;
@@ -275,6 +296,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkEvent h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkQueryPool : IEquatable<VkQueryPool>
 	{
 		public readonly uint64 Handle;
@@ -288,6 +310,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkQueryPool h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkFramebuffer : IEquatable<VkFramebuffer>
 	{
 		public readonly uint64 Handle;
@@ -301,6 +324,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkFramebuffer h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkRenderPass : IEquatable<VkRenderPass>
 	{
 		public readonly uint64 Handle;
@@ -314,6 +338,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkRenderPass h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkPipelineCache : IEquatable<VkPipelineCache>
 	{
 		public readonly uint64 Handle;
@@ -327,6 +352,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkPipelineCache h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkIndirectCommandsLayoutNV : IEquatable<VkIndirectCommandsLayoutNV>
 	{
 		public readonly uint64 Handle;
@@ -340,6 +366,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkIndirectCommandsLayoutNV h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkDescriptorUpdateTemplate : IEquatable<VkDescriptorUpdateTemplate>
 	{
 		public readonly uint64 Handle;
@@ -353,6 +380,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkDescriptorUpdateTemplate h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkDescriptorUpdateTemplateKHR : IEquatable<VkDescriptorUpdateTemplateKHR>
 	{
 		public readonly uint64 Handle;
@@ -366,6 +394,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkDescriptorUpdateTemplateKHR h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkSamplerYcbcrConversion : IEquatable<VkSamplerYcbcrConversion>
 	{
 		public readonly uint64 Handle;
@@ -379,6 +408,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkSamplerYcbcrConversion h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkSamplerYcbcrConversionKHR : IEquatable<VkSamplerYcbcrConversionKHR>
 	{
 		public readonly uint64 Handle;
@@ -392,6 +422,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkSamplerYcbcrConversionKHR h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkValidationCacheEXT : IEquatable<VkValidationCacheEXT>
 	{
 		public readonly uint64 Handle;
@@ -405,6 +436,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkValidationCacheEXT h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkAccelerationStructureKHR : IEquatable<VkAccelerationStructureKHR>
 	{
 		public readonly uint64 Handle;
@@ -418,6 +450,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkAccelerationStructureKHR h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkAccelerationStructureNV : IEquatable<VkAccelerationStructureNV>
 	{
 		public readonly uint64 Handle;
@@ -431,6 +464,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkAccelerationStructureNV h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkPerformanceConfigurationINTEL : IEquatable<VkPerformanceConfigurationINTEL>
 	{
 		public readonly uint64 Handle;
@@ -444,6 +478,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkPerformanceConfigurationINTEL h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkDeferredOperationKHR : IEquatable<VkDeferredOperationKHR>
 	{
 		public readonly uint64 Handle;
@@ -457,6 +492,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkDeferredOperationKHR h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkPrivateDataSlotEXT : IEquatable<VkPrivateDataSlotEXT>
 	{
 		public readonly uint64 Handle;
@@ -470,6 +506,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkPrivateDataSlotEXT h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkCuModuleNVX : IEquatable<VkCuModuleNVX>
 	{
 		public readonly uint64 Handle;
@@ -483,6 +520,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkCuModuleNVX h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkCuFunctionNVX : IEquatable<VkCuFunctionNVX>
 	{
 		public readonly uint64 Handle;
@@ -496,6 +534,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkCuFunctionNVX h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkDisplayKHR : IEquatable<VkDisplayKHR>
 	{
 		public readonly uint64 Handle;
@@ -509,6 +548,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkDisplayKHR h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkDisplayModeKHR : IEquatable<VkDisplayModeKHR>
 	{
 		public readonly uint64 Handle;
@@ -522,6 +562,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkDisplayModeKHR h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkSurfaceKHR : IEquatable<VkSurfaceKHR>
 	{
 		public readonly uint64 Handle;
@@ -535,6 +576,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkSurfaceKHR h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkSwapchainKHR : IEquatable<VkSwapchainKHR>
 	{
 		public readonly uint64 Handle;
@@ -548,6 +590,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkSwapchainKHR h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkDebugReportCallbackEXT : IEquatable<VkDebugReportCallbackEXT>
 	{
 		public readonly uint64 Handle;
@@ -561,6 +604,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkDebugReportCallbackEXT h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkDebugUtilsMessengerEXT : IEquatable<VkDebugUtilsMessengerEXT>
 	{
 		public readonly uint64 Handle;
@@ -574,6 +618,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkDebugUtilsMessengerEXT h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkVideoSessionKHR : IEquatable<VkVideoSessionKHR>
 	{
 		public readonly uint64 Handle;
@@ -587,6 +632,7 @@ namespace Sedulous.Bindings.Vulkan
 		public bool Equals(VkVideoSessionKHR h) => Handle == h.Handle;
 	}
 
+	[CRepr]
 	public struct VkVideoSessionParametersKHR : IEquatable<VkVideoSessionParametersKHR>
 	{
 		public readonly uint64 Handle;

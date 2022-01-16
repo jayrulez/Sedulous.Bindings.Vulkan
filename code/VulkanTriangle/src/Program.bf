@@ -8,7 +8,6 @@ namespace VulkanTriangle
 			var app = scope VulkanTriangle();
 
 			app.Run();
-			Console.Read();
 		}
 	}
 }
