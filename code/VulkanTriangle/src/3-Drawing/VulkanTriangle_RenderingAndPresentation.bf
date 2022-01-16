@@ -8,20 +8,14 @@ namespace VulkanTriangle
 
 		private void CreateSemaphores()
 		{
-		    VkSemaphoreCreateInfo semaphoreInfo = VkSemaphoreCreateInfo()
+		    VkSemaphoreCreateInfo semaphoreInfo = .()
 		    {
 		        sType = VkStructureType.VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO,
 		    };
 
-		    VkSemaphore* imageAvailableSemaphorePtr = &this.imageAvailableSemaphore;
-		    {
-		        Helpers.CheckErrors(VulkanNative.vkCreateSemaphore(this.device, &semaphoreInfo, null, imageAvailableSemaphorePtr));
-		    }
+		    Helpers.CheckErrors(VulkanNative.vkCreateSemaphore(this.device, &semaphoreInfo, null, &this.imageAvailableSemaphore));
 
-		    VkSemaphore* renderFinishedSemaphorePtr = &this.renderFinishedSemaphore;
-		    {
-		        Helpers.CheckErrors(VulkanNative.vkCreateSemaphore(this.device, &semaphoreInfo, null, renderFinishedSemaphorePtr));
-		    }
+		    Helpers.CheckErrors(VulkanNative.vkCreateSemaphore(this.device, &semaphoreInfo, null, &this.renderFinishedSemaphore));
 		}
 
 		private void DrawFrame()

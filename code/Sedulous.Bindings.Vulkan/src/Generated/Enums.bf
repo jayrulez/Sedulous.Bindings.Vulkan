@@ -3,7 +3,7 @@ using System;
 namespace Sedulous.Bindings.Vulkan
 {
 	[AllowDuplicates]
-	public enum VkImageLayout
+	public enum VkImageLayout : uint32
 	{
 		VK_IMAGE_LAYOUT_UNDEFINED = 0,
 		VK_IMAGE_LAYOUT_GENERAL = 1,
@@ -35,7 +35,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkAttachmentLoadOp
+	public enum VkAttachmentLoadOp : uint32
 	{
 		VK_ATTACHMENT_LOAD_OP_LOAD = 0,
 		VK_ATTACHMENT_LOAD_OP_CLEAR = 1,
@@ -43,7 +43,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkAttachmentStoreOp
+	public enum VkAttachmentStoreOp : uint32
 	{
 		VK_ATTACHMENT_STORE_OP_STORE = 0,
 		VK_ATTACHMENT_STORE_OP_DONT_CARE = 1,
@@ -51,7 +51,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkImageType
+	public enum VkImageType : uint32
 	{
 		VK_IMAGE_TYPE_1D = 0,
 		VK_IMAGE_TYPE_2D = 1,
@@ -59,7 +59,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkImageTiling
+	public enum VkImageTiling : uint32
 	{
 		VK_IMAGE_TILING_OPTIMAL = 0,
 		VK_IMAGE_TILING_LINEAR = 1,
@@ -67,7 +67,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkImageViewType
+	public enum VkImageViewType : uint32
 	{
 		VK_IMAGE_VIEW_TYPE_1D = 0,
 		VK_IMAGE_VIEW_TYPE_2D = 1,
@@ -79,14 +79,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkCommandBufferLevel
+	public enum VkCommandBufferLevel : uint32
 	{
 		VK_COMMAND_BUFFER_LEVEL_PRIMARY = 0,
 		VK_COMMAND_BUFFER_LEVEL_SECONDARY = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkComponentSwizzle
+	public enum VkComponentSwizzle : uint32
 	{
 		VK_COMPONENT_SWIZZLE_IDENTITY = 0,
 		VK_COMPONENT_SWIZZLE_ZERO = 1,
@@ -98,7 +98,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkDescriptorType
+	public enum VkDescriptorType : uint32
 	{
 		VK_DESCRIPTOR_TYPE_SAMPLER = 0,
 		VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER = 1,
@@ -118,7 +118,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkQueryType
+	public enum VkQueryType : uint32
 	{
 		VK_QUERY_TYPE_OCCLUSION = 0,
 		VK_QUERY_TYPE_PIPELINE_STATISTICS = 1,
@@ -134,7 +134,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkBorderColor
+	public enum VkBorderColor : uint32
 	{
 		VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK = 0,
 		VK_BORDER_COLOR_INT_TRANSPARENT_BLACK = 1,
@@ -147,7 +147,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkPipelineBindPoint
+	public enum VkPipelineBindPoint : uint32
 	{
 		VK_PIPELINE_BIND_POINT_GRAPHICS = 0,
 		VK_PIPELINE_BIND_POINT_COMPUTE = 1,
@@ -156,21 +156,21 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkPipelineCacheHeaderVersion
+	public enum VkPipelineCacheHeaderVersion : uint32
 	{
 		None = 0,
 		VK_PIPELINE_CACHE_HEADER_VERSION_ONE = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkPipelineCacheCreateFlags
+	public enum VkPipelineCacheCreateFlags : uint32
 	{
 		None = 0,
 		VK_PIPELINE_CACHE_CREATE_EXTERNALLY_SYNCHRONIZED_BIT_EXT = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkPrimitiveTopology
+	public enum VkPrimitiveTopology : uint32
 	{
 		VK_PRIMITIVE_TOPOLOGY_POINT_LIST = 0,
 		VK_PRIMITIVE_TOPOLOGY_LINE_LIST = 1,
@@ -186,14 +186,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkSharingMode
+	public enum VkSharingMode : uint32
 	{
 		VK_SHARING_MODE_EXCLUSIVE = 0,
 		VK_SHARING_MODE_CONCURRENT = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkIndexType
+	public enum VkIndexType : uint32
 	{
 		VK_INDEX_TYPE_UINT16 = 0,
 		VK_INDEX_TYPE_UINT32 = 1,
@@ -202,7 +202,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkFilter
+	public enum VkFilter : uint32
 	{
 		VK_FILTER_NEAREST = 0,
 		VK_FILTER_LINEAR = 1,
@@ -210,14 +210,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkSamplerMipmapMode
+	public enum VkSamplerMipmapMode : uint32
 	{
 		VK_SAMPLER_MIPMAP_MODE_NEAREST = 0,
 		VK_SAMPLER_MIPMAP_MODE_LINEAR = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkSamplerAddressMode
+	public enum VkSamplerAddressMode : uint32
 	{
 		VK_SAMPLER_ADDRESS_MODE_REPEAT = 0,
 		VK_SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT = 1,
@@ -227,7 +227,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkCompareOp
+	public enum VkCompareOp : uint32
 	{
 		VK_COMPARE_OP_NEVER = 0,
 		VK_COMPARE_OP_LESS = 1,
@@ -240,7 +240,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkPolygonMode
+	public enum VkPolygonMode : uint32
 	{
 		VK_POLYGON_MODE_FILL = 0,
 		VK_POLYGON_MODE_LINE = 1,
@@ -249,14 +249,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkFrontFace
+	public enum VkFrontFace : uint32
 	{
 		VK_FRONT_FACE_COUNTER_CLOCKWISE = 0,
 		VK_FRONT_FACE_CLOCKWISE = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkBlendFactor
+	public enum VkBlendFactor : uint32
 	{
 		VK_BLEND_FACTOR_ZERO = 0,
 		VK_BLEND_FACTOR_ONE = 1,
@@ -280,7 +280,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkBlendOp
+	public enum VkBlendOp : uint32
 	{
 		VK_BLEND_OP_ADD = 0,
 		VK_BLEND_OP_SUBTRACT = 1,
@@ -336,7 +336,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkStencilOp
+	public enum VkStencilOp : uint32
 	{
 		VK_STENCIL_OP_KEEP = 0,
 		VK_STENCIL_OP_ZERO = 1,
@@ -349,7 +349,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkLogicOp
+	public enum VkLogicOp : uint32
 	{
 		VK_LOGIC_OP_CLEAR = 0,
 		VK_LOGIC_OP_AND = 1,
@@ -370,13 +370,13 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkInternalAllocationType
+	public enum VkInternalAllocationType : uint32
 	{
 		VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE = 0,
 	}
 
 	[AllowDuplicates]
-	public enum VkSystemAllocationScope
+	public enum VkSystemAllocationScope : uint32
 	{
 		VK_SYSTEM_ALLOCATION_SCOPE_COMMAND = 0,
 		VK_SYSTEM_ALLOCATION_SCOPE_OBJECT = 1,
@@ -386,7 +386,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkPhysicalDeviceType
+	public enum VkPhysicalDeviceType : uint32
 	{
 		VK_PHYSICAL_DEVICE_TYPE_OTHER = 0,
 		VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU = 1,
@@ -396,14 +396,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkVertexInputRate
+	public enum VkVertexInputRate : uint32
 	{
 		VK_VERTEX_INPUT_RATE_VERTEX = 0,
 		VK_VERTEX_INPUT_RATE_INSTANCE = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkFormat
+	public enum VkFormat : uint32
 	{
 		VK_FORMAT_UNDEFINED = 0,
 		VK_FORMAT_R4G4_UNORM_PACK8 = 1,
@@ -655,7 +655,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkStructureType
+	public enum VkStructureType : uint32
 	{
 		VK_STRUCTURE_TYPE_APPLICATION_INFO = 0,
 		VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO = 1,
@@ -1212,14 +1212,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkSubpassContents
+	public enum VkSubpassContents : uint32
 	{
 		VK_SUBPASS_CONTENTS_INLINE = 0,
 		VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkResult
+	public enum VkResult : int32
 	{
 		VK_SUCCESS = 0,
 		VK_NOT_READY = 1,
@@ -1262,7 +1262,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkDynamicState
+	public enum VkDynamicState : uint32
 	{
 		VK_DYNAMIC_STATE_VIEWPORT = 0,
 		VK_DYNAMIC_STATE_SCISSOR = 1,
@@ -1304,13 +1304,13 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkDescriptorUpdateTemplateType
+	public enum VkDescriptorUpdateTemplateType : uint32
 	{
 		VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_DESCRIPTOR_SET = 0,
 	}
 
 	[AllowDuplicates]
-	public enum VkObjectType
+	public enum VkObjectType : uint32
 	{
 		VK_OBJECT_TYPE_UNKNOWN = 0,
 		VK_OBJECT_TYPE_INSTANCE = 1,
@@ -1360,7 +1360,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkQueueFlags
+	public enum VkQueueFlags : uint32
 	{
 		None = 0,
 		VK_QUEUE_GRAPHICS_BIT = 1,
@@ -1373,7 +1373,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkCullModeFlags
+	public enum VkCullModeFlags : uint32
 	{
 		VK_CULL_MODE_NONE = 0,
 		VK_CULL_MODE_FRONT_BIT = 1,
@@ -1382,21 +1382,21 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkRenderPassCreateFlags
+	public enum VkRenderPassCreateFlags : uint32
 	{
 		None = 0,
 		VK_RENDER_PASS_CREATE_TRANSFORM_BIT_QCOM = 2,
 	}
 
 	[AllowDuplicates]
-	public enum VkDeviceQueueCreateFlags
+	public enum VkDeviceQueueCreateFlags : uint32
 	{
 		None = 0,
 		VK_DEVICE_QUEUE_CREATE_PROTECTED_BIT = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkMemoryPropertyFlags
+	public enum VkMemoryPropertyFlags : uint32
 	{
 		None = 0,
 		VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT = 1,
@@ -1410,7 +1410,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkMemoryHeapFlags
+	public enum VkMemoryHeapFlags : uint32
 	{
 		None = 0,
 		VK_MEMORY_HEAP_DEVICE_LOCAL_BIT = 1,
@@ -1418,7 +1418,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkAccessFlags
+	public enum VkAccessFlags : uint32
 	{
 		VK_ACCESS_INDIRECT_COMMAND_READ_BIT = 1,
 		VK_ACCESS_INDEX_READ_BIT = 2,
@@ -1452,7 +1452,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkBufferUsageFlags
+	public enum VkBufferUsageFlags : uint32
 	{
 		None = 0,
 		VK_BUFFER_USAGE_TRANSFER_SRC_BIT = 1,
@@ -1478,7 +1478,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkBufferCreateFlags
+	public enum VkBufferCreateFlags : uint32
 	{
 		None = 0,
 		VK_BUFFER_CREATE_SPARSE_BINDING_BIT = 1,
@@ -1489,7 +1489,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkShaderStageFlags
+	public enum VkShaderStageFlags : uint32
 	{
 		None = 0,
 		VK_SHADER_STAGE_VERTEX_BIT = 1,
@@ -1512,7 +1512,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkImageUsageFlags
+	public enum VkImageUsageFlags : uint32
 	{
 		None = 0,
 		VK_IMAGE_USAGE_TRANSFER_SRC_BIT = 1,
@@ -1534,7 +1534,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkImageCreateFlags
+	public enum VkImageCreateFlags : uint32
 	{
 		None = 0,
 		VK_IMAGE_CREATE_SPARSE_BINDING_BIT = 1,
@@ -1555,7 +1555,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkImageViewCreateFlags
+	public enum VkImageViewCreateFlags : uint32
 	{
 		None = 0,
 		VK_IMAGE_VIEW_CREATE_FRAGMENT_DENSITY_MAP_DYNAMIC_BIT_EXT = 1,
@@ -1563,7 +1563,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkSamplerCreateFlags
+	public enum VkSamplerCreateFlags : uint32
 	{
 		None = 0,
 		VK_SAMPLER_CREATE_SUBSAMPLED_BIT_EXT = 1,
@@ -1571,7 +1571,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkPipelineCreateFlags
+	public enum VkPipelineCreateFlags : uint32
 	{
 		None = 0,
 		VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT = 1,
@@ -1597,7 +1597,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkPipelineShaderStageCreateFlags
+	public enum VkPipelineShaderStageCreateFlags : uint32
 	{
 		None = 0,
 		VK_PIPELINE_SHADER_STAGE_CREATE_ALLOW_VARYING_SUBGROUP_SIZE_BIT_EXT = 1,
@@ -1605,7 +1605,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkColorComponentFlags
+	public enum VkColorComponentFlags : uint32
 	{
 		None = 0,
 		VK_COLOR_COMPONENT_R_BIT = 1,
@@ -1615,14 +1615,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkFenceCreateFlags
+	public enum VkFenceCreateFlags : uint32
 	{
 		None = 0,
 		VK_FENCE_CREATE_SIGNALED_BIT = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkFormatFeatureFlags
+	public enum VkFormatFeatureFlags : uint32
 	{
 		None = 0,
 		VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT = 1,
@@ -1659,14 +1659,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkQueryControlFlags
+	public enum VkQueryControlFlags : uint32
 	{
 		None = 0,
 		VK_QUERY_CONTROL_PRECISE_BIT = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkQueryResultFlags
+	public enum VkQueryResultFlags : uint32
 	{
 		None = 0,
 		VK_QUERY_RESULT_64_BIT = 1,
@@ -1677,7 +1677,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkCommandBufferUsageFlags
+	public enum VkCommandBufferUsageFlags : uint32
 	{
 		None = 0,
 		VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT = 1,
@@ -1686,7 +1686,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkQueryPipelineStatisticFlags
+	public enum VkQueryPipelineStatisticFlags : uint32
 	{
 		None = 0,
 		VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_VERTICES_BIT = 1,
@@ -1703,7 +1703,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkImageAspectFlags
+	public enum VkImageAspectFlags : uint32
 	{
 		None = 0,
 		VK_IMAGE_ASPECT_COLOR_BIT = 1,
@@ -1720,7 +1720,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkSparseImageFormatFlags
+	public enum VkSparseImageFormatFlags : uint32
 	{
 		None = 0,
 		VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT = 1,
@@ -1729,14 +1729,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkSparseMemoryBindFlags
+	public enum VkSparseMemoryBindFlags : uint32
 	{
 		None = 0,
 		VK_SPARSE_MEMORY_BIND_METADATA_BIT = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkPipelineStageFlags
+	public enum VkPipelineStageFlags : uint32
 	{
 		VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT = 1,
 		VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT = 2,
@@ -1768,7 +1768,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkCommandPoolCreateFlags
+	public enum VkCommandPoolCreateFlags : uint32
 	{
 		None = 0,
 		VK_COMMAND_POOL_CREATE_TRANSIENT_BIT = 1,
@@ -1777,21 +1777,21 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkCommandPoolResetFlags
+	public enum VkCommandPoolResetFlags : uint32
 	{
 		None = 0,
 		VK_COMMAND_POOL_RESET_RELEASE_RESOURCES_BIT = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkCommandBufferResetFlags
+	public enum VkCommandBufferResetFlags : uint32
 	{
 		None = 0,
 		VK_COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkSampleCountFlags
+	public enum VkSampleCountFlags : uint32
 	{
 		None = 0,
 		VK_SAMPLE_COUNT_1_BIT = 1,
@@ -1804,14 +1804,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkAttachmentDescriptionFlags
+	public enum VkAttachmentDescriptionFlags : uint32
 	{
 		None = 0,
 		VK_ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkStencilFaceFlags
+	public enum VkStencilFaceFlags : uint32
 	{
 		VK_STENCIL_FACE_FRONT_BIT = 1,
 		VK_STENCIL_FACE_BACK_BIT = 2,
@@ -1820,7 +1820,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkDescriptorPoolCreateFlags
+	public enum VkDescriptorPoolCreateFlags : uint32
 	{
 		None = 0,
 		VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT = 1,
@@ -1829,7 +1829,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkDependencyFlags
+	public enum VkDependencyFlags : uint32
 	{
 		None = 0,
 		VK_DEPENDENCY_BY_REGION_BIT = 1,
@@ -1838,21 +1838,21 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkSemaphoreType
+	public enum VkSemaphoreType : uint32
 	{
 		VK_SEMAPHORE_TYPE_BINARY = 0,
 		VK_SEMAPHORE_TYPE_TIMELINE = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkSemaphoreWaitFlags
+	public enum VkSemaphoreWaitFlags : uint32
 	{
 		None = 0,
 		VK_SEMAPHORE_WAIT_ANY_BIT = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkPresentModeKHR
+	public enum VkPresentModeKHR : uint32
 	{
 		VK_PRESENT_MODE_IMMEDIATE_KHR = 0,
 		VK_PRESENT_MODE_MAILBOX_KHR = 1,
@@ -1863,7 +1863,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkColorSpaceKHR
+	public enum VkColorSpaceKHR : uint32
 	{
 		VK_COLOR_SPACE_SRGB_NONLINEAR_KHR = 0,
 		VK_COLORSPACE_SRGB_NONLINEAR_KHR = 0,
@@ -1885,7 +1885,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkDisplayPlaneAlphaFlagsKHR
+	public enum VkDisplayPlaneAlphaFlagsKHR : uint32
 	{
 		None = 0,
 		VK_DISPLAY_PLANE_ALPHA_OPAQUE_BIT_KHR = 1,
@@ -1895,7 +1895,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkCompositeAlphaFlagsKHR
+	public enum VkCompositeAlphaFlagsKHR : uint32
 	{
 		None = 0,
 		VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR = 1,
@@ -1905,7 +1905,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkSurfaceTransformFlagsKHR
+	public enum VkSurfaceTransformFlagsKHR : uint32
 	{
 		None = 0,
 		VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR = 1,
@@ -1920,14 +1920,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkSwapchainImageUsageFlagsANDROID
+	public enum VkSwapchainImageUsageFlagsANDROID : uint32
 	{
 		None = 0,
 		VK_SWAPCHAIN_IMAGE_USAGE_SHARED_BIT_ANDROID = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkTimeDomainEXT
+	public enum VkTimeDomainEXT : uint32
 	{
 		VK_TIME_DOMAIN_DEVICE_EXT = 0,
 		VK_TIME_DOMAIN_CLOCK_MONOTONIC_EXT = 1,
@@ -1936,7 +1936,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkDebugReportFlagsEXT
+	public enum VkDebugReportFlagsEXT : uint32
 	{
 		None = 0,
 		VK_DEBUG_REPORT_INFORMATION_BIT_EXT = 1,
@@ -1947,7 +1947,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkDebugReportObjectTypeEXT
+	public enum VkDebugReportObjectTypeEXT : uint32
 	{
 		VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT = 0,
 		VK_DEBUG_REPORT_OBJECT_TYPE_INSTANCE_EXT = 1,
@@ -1990,7 +1990,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkDeviceMemoryReportEventTypeEXT
+	public enum VkDeviceMemoryReportEventTypeEXT : uint32
 	{
 		VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_ALLOCATE_EXT = 0,
 		VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_FREE_EXT = 1,
@@ -2000,14 +2000,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkRasterizationOrderAMD
+	public enum VkRasterizationOrderAMD : uint32
 	{
 		VK_RASTERIZATION_ORDER_STRICT_AMD = 0,
 		VK_RASTERIZATION_ORDER_RELAXED_AMD = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkExternalMemoryHandleTypeFlagsNV
+	public enum VkExternalMemoryHandleTypeFlagsNV : uint32
 	{
 		None = 0,
 		VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV = 1,
@@ -2017,7 +2017,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkExternalMemoryFeatureFlagsNV
+	public enum VkExternalMemoryFeatureFlagsNV : uint32
 	{
 		None = 0,
 		VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_NV = 1,
@@ -2026,14 +2026,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkValidationCheckEXT
+	public enum VkValidationCheckEXT : uint32
 	{
 		VK_VALIDATION_CHECK_ALL_EXT = 0,
 		VK_VALIDATION_CHECK_SHADERS_EXT = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkValidationFeatureEnableEXT
+	public enum VkValidationFeatureEnableEXT : uint32
 	{
 		VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_EXT = 0,
 		VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_RESERVE_BINDING_SLOT_EXT = 1,
@@ -2043,7 +2043,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkValidationFeatureDisableEXT
+	public enum VkValidationFeatureDisableEXT : uint32
 	{
 		VK_VALIDATION_FEATURE_DISABLE_ALL_EXT = 0,
 		VK_VALIDATION_FEATURE_DISABLE_SHADERS_EXT = 1,
@@ -2056,7 +2056,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkSubgroupFeatureFlags
+	public enum VkSubgroupFeatureFlags : uint32
 	{
 		None = 0,
 		VK_SUBGROUP_FEATURE_BASIC_BIT = 1,
@@ -2071,7 +2071,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkIndirectCommandsLayoutUsageFlagsNV
+	public enum VkIndirectCommandsLayoutUsageFlagsNV : uint32
 	{
 		None = 0,
 		VK_INDIRECT_COMMANDS_LAYOUT_USAGE_EXPLICIT_PREPROCESS_BIT_NV = 1,
@@ -2080,14 +2080,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkIndirectStateFlagsNV
+	public enum VkIndirectStateFlagsNV : uint32
 	{
 		None = 0,
 		VK_INDIRECT_STATE_FLAG_FRONTFACE_BIT_NV = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkIndirectCommandsTokenTypeNV
+	public enum VkIndirectCommandsTokenTypeNV : uint32
 	{
 		VK_INDIRECT_COMMANDS_TOKEN_TYPE_SHADER_GROUP_NV = 0,
 		VK_INDIRECT_COMMANDS_TOKEN_TYPE_STATE_FLAGS_NV = 1,
@@ -2100,13 +2100,13 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkPrivateDataSlotCreateFlagsEXT
+	public enum VkPrivateDataSlotCreateFlagsEXT : uint32
 	{
 		None = 0,
 	}
 
 	[AllowDuplicates]
-	public enum VkDescriptorSetLayoutCreateFlags
+	public enum VkDescriptorSetLayoutCreateFlags : uint32
 	{
 		None = 0,
 		VK_DESCRIPTOR_SET_LAYOUT_CREATE_UPDATE_AFTER_BIND_POOL_BIT = 2,
@@ -2115,7 +2115,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkExternalMemoryHandleTypeFlags
+	public enum VkExternalMemoryHandleTypeFlags : uint32
 	{
 		None = 0,
 		VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT = 1,
@@ -2133,7 +2133,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkExternalMemoryFeatureFlags
+	public enum VkExternalMemoryFeatureFlags : uint32
 	{
 		None = 0,
 		VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT = 1,
@@ -2142,7 +2142,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkExternalSemaphoreHandleTypeFlags
+	public enum VkExternalSemaphoreHandleTypeFlags : uint32
 	{
 		VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT = 1,
 		VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT = 2,
@@ -2154,7 +2154,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkExternalSemaphoreFeatureFlags
+	public enum VkExternalSemaphoreFeatureFlags : uint32
 	{
 		None = 0,
 		VK_EXTERNAL_SEMAPHORE_FEATURE_EXPORTABLE_BIT = 1,
@@ -2162,14 +2162,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkSemaphoreImportFlags
+	public enum VkSemaphoreImportFlags : uint32
 	{
 		None = 0,
 		VK_SEMAPHORE_IMPORT_TEMPORARY_BIT = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkExternalFenceHandleTypeFlags
+	public enum VkExternalFenceHandleTypeFlags : uint32
 	{
 		None = 0,
 		VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_FD_BIT = 1,
@@ -2179,7 +2179,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkExternalFenceFeatureFlags
+	public enum VkExternalFenceFeatureFlags : uint32
 	{
 		None = 0,
 		VK_EXTERNAL_FENCE_FEATURE_EXPORTABLE_BIT = 1,
@@ -2187,21 +2187,21 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkFenceImportFlags
+	public enum VkFenceImportFlags : uint32
 	{
 		None = 0,
 		VK_FENCE_IMPORT_TEMPORARY_BIT = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkSurfaceCounterFlagsEXT
+	public enum VkSurfaceCounterFlagsEXT : uint32
 	{
 		VK_SURFACE_COUNTER_VBLANK_BIT_EXT = 1,
 		VK_SURFACE_COUNTER_VBLANK_EXT = 0,
 	}
 
 	[AllowDuplicates]
-	public enum VkDisplayPowerStateEXT
+	public enum VkDisplayPowerStateEXT : uint32
 	{
 		VK_DISPLAY_POWER_STATE_OFF_EXT = 0,
 		VK_DISPLAY_POWER_STATE_SUSPEND_EXT = 1,
@@ -2209,19 +2209,19 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkDeviceEventTypeEXT
+	public enum VkDeviceEventTypeEXT : uint32
 	{
 		VK_DEVICE_EVENT_TYPE_DISPLAY_HOTPLUG_EXT = 0,
 	}
 
 	[AllowDuplicates]
-	public enum VkDisplayEventTypeEXT
+	public enum VkDisplayEventTypeEXT : uint32
 	{
 		VK_DISPLAY_EVENT_TYPE_FIRST_PIXEL_OUT_EXT = 0,
 	}
 
 	[AllowDuplicates]
-	public enum VkPeerMemoryFeatureFlags
+	public enum VkPeerMemoryFeatureFlags : uint32
 	{
 		None = 0,
 		VK_PEER_MEMORY_FEATURE_COPY_SRC_BIT = 1,
@@ -2231,7 +2231,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkMemoryAllocateFlags
+	public enum VkMemoryAllocateFlags : uint32
 	{
 		None = 0,
 		VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT = 1,
@@ -2240,7 +2240,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkDeviceGroupPresentModeFlagsKHR
+	public enum VkDeviceGroupPresentModeFlagsKHR : uint32
 	{
 		None = 0,
 		VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_BIT_KHR = 1,
@@ -2250,14 +2250,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkSwapchainCreateFlagsKHR
+	public enum VkSwapchainCreateFlagsKHR : uint32
 	{
 		None = 0,
 		VK_SWAPCHAIN_CREATE_MUTABLE_FORMAT_BIT_KHR = 4,
 	}
 
 	[AllowDuplicates]
-	public enum VkViewportCoordinateSwizzleNV
+	public enum VkViewportCoordinateSwizzleNV : uint32
 	{
 		VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_X_NV = 0,
 		VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_X_NV = 1,
@@ -2270,14 +2270,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkDiscardRectangleModeEXT
+	public enum VkDiscardRectangleModeEXT : uint32
 	{
 		VK_DISCARD_RECTANGLE_MODE_INCLUSIVE_EXT = 0,
 		VK_DISCARD_RECTANGLE_MODE_EXCLUSIVE_EXT = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkSubpassDescriptionFlags
+	public enum VkSubpassDescriptionFlags : uint32
 	{
 		None = 0,
 		VK_SUBPASS_DESCRIPTION_PER_VIEW_ATTRIBUTES_BIT_NVX = 1,
@@ -2287,14 +2287,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkPointClippingBehavior
+	public enum VkPointClippingBehavior : uint32
 	{
 		VK_POINT_CLIPPING_BEHAVIOR_ALL_CLIP_PLANES = 0,
 		VK_POINT_CLIPPING_BEHAVIOR_USER_CLIP_PLANES_ONLY = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkSamplerReductionMode
+	public enum VkSamplerReductionMode : uint32
 	{
 		VK_SAMPLER_REDUCTION_MODE_WEIGHTED_AVERAGE = 0,
 		VK_SAMPLER_REDUCTION_MODE_MIN = 1,
@@ -2302,14 +2302,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkTessellationDomainOrigin
+	public enum VkTessellationDomainOrigin : uint32
 	{
 		VK_TESSELLATION_DOMAIN_ORIGIN_UPPER_LEFT = 0,
 		VK_TESSELLATION_DOMAIN_ORIGIN_LOWER_LEFT = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkSamplerYcbcrModelConversion
+	public enum VkSamplerYcbcrModelConversion : uint32
 	{
 		VK_SAMPLER_YCBCR_MODEL_CONVERSION_RGB_IDENTITY = 0,
 		VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_IDENTITY = 1,
@@ -2319,21 +2319,21 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkSamplerYcbcrRange
+	public enum VkSamplerYcbcrRange : uint32
 	{
 		VK_SAMPLER_YCBCR_RANGE_ITU_FULL = 0,
 		VK_SAMPLER_YCBCR_RANGE_ITU_NARROW = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkChromaLocation
+	public enum VkChromaLocation : uint32
 	{
 		VK_CHROMA_LOCATION_COSITED_EVEN = 0,
 		VK_CHROMA_LOCATION_MIDPOINT = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkBlendOverlapEXT
+	public enum VkBlendOverlapEXT : uint32
 	{
 		VK_BLEND_OVERLAP_UNCORRELATED_EXT = 0,
 		VK_BLEND_OVERLAP_DISJOINT_EXT = 1,
@@ -2341,7 +2341,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkCoverageModulationModeNV
+	public enum VkCoverageModulationModeNV : uint32
 	{
 		VK_COVERAGE_MODULATION_MODE_NONE_NV = 0,
 		VK_COVERAGE_MODULATION_MODE_RGB_NV = 1,
@@ -2350,21 +2350,21 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkCoverageReductionModeNV
+	public enum VkCoverageReductionModeNV : uint32
 	{
 		VK_COVERAGE_REDUCTION_MODE_MERGE_NV = 0,
 		VK_COVERAGE_REDUCTION_MODE_TRUNCATE_NV = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkValidationCacheHeaderVersionEXT
+	public enum VkValidationCacheHeaderVersionEXT : uint32
 	{
 		None = 0,
 		VK_VALIDATION_CACHE_HEADER_VERSION_ONE_EXT = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkShaderInfoTypeAMD
+	public enum VkShaderInfoTypeAMD : uint32
 	{
 		VK_SHADER_INFO_TYPE_STATISTICS_AMD = 0,
 		VK_SHADER_INFO_TYPE_BINARY_AMD = 1,
@@ -2372,7 +2372,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkQueueGlobalPriorityEXT
+	public enum VkQueueGlobalPriorityEXT : uint32
 	{
 		None = 0,
 		VK_QUEUE_GLOBAL_PRIORITY_LOW_EXT = 128,
@@ -2382,7 +2382,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkDebugUtilsMessageSeverityFlagsEXT
+	public enum VkDebugUtilsMessageSeverityFlagsEXT : uint32
 	{
 		None = 0,
 		VK_DEBUG_UTILS_MESSAGE_SEVERITY_VERBOSE_BIT_EXT = 1,
@@ -2392,7 +2392,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkDebugUtilsMessageTypeFlagsEXT
+	public enum VkDebugUtilsMessageTypeFlagsEXT : uint32
 	{
 		None = 0,
 		VK_DEBUG_UTILS_MESSAGE_TYPE_GENERAL_BIT_EXT = 1,
@@ -2401,7 +2401,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkConservativeRasterizationModeEXT
+	public enum VkConservativeRasterizationModeEXT : uint32
 	{
 		VK_CONSERVATIVE_RASTERIZATION_MODE_DISABLED_EXT = 0,
 		VK_CONSERVATIVE_RASTERIZATION_MODE_OVERESTIMATE_EXT = 1,
@@ -2409,7 +2409,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkDescriptorBindingFlags
+	public enum VkDescriptorBindingFlags : uint32
 	{
 		None = 0,
 		VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT = 1,
@@ -2419,7 +2419,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkVendorId
+	public enum VkVendorId : uint32
 	{
 		None = 0,
 		VK_VENDOR_ID_VIV = 65537,
@@ -2431,7 +2431,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkDriverId
+	public enum VkDriverId : uint32
 	{
 		None = 0,
 		VK_DRIVER_ID_AMD_PROPRIETARY = 1,
@@ -2453,14 +2453,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkConditionalRenderingFlagsEXT
+	public enum VkConditionalRenderingFlagsEXT : uint32
 	{
 		None = 0,
 		VK_CONDITIONAL_RENDERING_INVERTED_BIT_EXT = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkResolveModeFlags
+	public enum VkResolveModeFlags : uint32
 	{
 		VK_RESOLVE_MODE_NONE = 0,
 		VK_RESOLVE_MODE_SAMPLE_ZERO_BIT = 1,
@@ -2470,7 +2470,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkShadingRatePaletteEntryNV
+	public enum VkShadingRatePaletteEntryNV : uint32
 	{
 		VK_SHADING_RATE_PALETTE_ENTRY_NO_INVOCATIONS_NV = 0,
 		VK_SHADING_RATE_PALETTE_ENTRY_16_INVOCATIONS_PER_PIXEL_NV = 1,
@@ -2487,7 +2487,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkCoarseSampleOrderTypeNV
+	public enum VkCoarseSampleOrderTypeNV : uint32
 	{
 		VK_COARSE_SAMPLE_ORDER_TYPE_DEFAULT_NV = 0,
 		VK_COARSE_SAMPLE_ORDER_TYPE_CUSTOM_NV = 1,
@@ -2496,7 +2496,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkGeometryInstanceFlagsKHR
+	public enum VkGeometryInstanceFlagsKHR : uint32
 	{
 		None = 0,
 		VK_GEOMETRY_INSTANCE_TRIANGLE_FACING_CULL_DISABLE_BIT_KHR = 1,
@@ -2506,7 +2506,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkGeometryFlagsKHR
+	public enum VkGeometryFlagsKHR : uint32
 	{
 		None = 0,
 		VK_GEOMETRY_OPAQUE_BIT_KHR = 1,
@@ -2514,7 +2514,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkBuildAccelerationStructureFlagsKHR
+	public enum VkBuildAccelerationStructureFlagsKHR : uint32
 	{
 		None = 0,
 		VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_UPDATE_BIT_KHR = 1,
@@ -2526,7 +2526,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkAccelerationStructureCreateFlagsKHR
+	public enum VkAccelerationStructureCreateFlagsKHR : uint32
 	{
 		None = 0,
 		VK_ACCELERATION_STRUCTURE_CREATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT_KHR = 1,
@@ -2534,7 +2534,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkCopyAccelerationStructureModeKHR
+	public enum VkCopyAccelerationStructureModeKHR : uint32
 	{
 		VK_COPY_ACCELERATION_STRUCTURE_MODE_CLONE_KHR = 0,
 		VK_COPY_ACCELERATION_STRUCTURE_MODE_COMPACT_KHR = 1,
@@ -2543,14 +2543,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkBuildAccelerationStructureModeKHR
+	public enum VkBuildAccelerationStructureModeKHR : uint32
 	{
 		VK_BUILD_ACCELERATION_STRUCTURE_MODE_BUILD_KHR = 0,
 		VK_BUILD_ACCELERATION_STRUCTURE_MODE_UPDATE_KHR = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkAccelerationStructureTypeKHR
+	public enum VkAccelerationStructureTypeKHR : uint32
 	{
 		VK_ACCELERATION_STRUCTURE_TYPE_TOP_LEVEL_KHR = 0,
 		VK_ACCELERATION_STRUCTURE_TYPE_BOTTOM_LEVEL_KHR = 1,
@@ -2558,7 +2558,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkGeometryTypeKHR
+	public enum VkGeometryTypeKHR : uint32
 	{
 		VK_GEOMETRY_TYPE_TRIANGLES_KHR = 0,
 		VK_GEOMETRY_TYPE_AABBS_KHR = 1,
@@ -2566,7 +2566,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkAccelerationStructureMemoryRequirementsTypeNV
+	public enum VkAccelerationStructureMemoryRequirementsTypeNV : uint32
 	{
 		VK_ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_TYPE_OBJECT_NV = 0,
 		VK_ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_TYPE_BUILD_SCRATCH_NV = 1,
@@ -2574,7 +2574,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkAccelerationStructureBuildTypeKHR
+	public enum VkAccelerationStructureBuildTypeKHR : uint32
 	{
 		VK_ACCELERATION_STRUCTURE_BUILD_TYPE_HOST_KHR = 0,
 		VK_ACCELERATION_STRUCTURE_BUILD_TYPE_DEVICE_KHR = 1,
@@ -2582,7 +2582,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkRayTracingShaderGroupTypeKHR
+	public enum VkRayTracingShaderGroupTypeKHR : uint32
 	{
 		VK_RAY_TRACING_SHADER_GROUP_TYPE_GENERAL_KHR = 0,
 		VK_RAY_TRACING_SHADER_GROUP_TYPE_TRIANGLES_HIT_GROUP_KHR = 1,
@@ -2590,14 +2590,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkAccelerationStructureCompatibilityKHR
+	public enum VkAccelerationStructureCompatibilityKHR : uint32
 	{
 		VK_ACCELERATION_STRUCTURE_COMPATIBILITY_COMPATIBLE_KHR = 0,
 		VK_ACCELERATION_STRUCTURE_COMPATIBILITY_INCOMPATIBLE_KHR = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkShaderGroupShaderKHR
+	public enum VkShaderGroupShaderKHR : uint32
 	{
 		VK_SHADER_GROUP_SHADER_GENERAL_KHR = 0,
 		VK_SHADER_GROUP_SHADER_CLOSEST_HIT_KHR = 1,
@@ -2606,7 +2606,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkMemoryOverallocationBehaviorAMD
+	public enum VkMemoryOverallocationBehaviorAMD : uint32
 	{
 		VK_MEMORY_OVERALLOCATION_BEHAVIOR_DEFAULT_AMD = 0,
 		VK_MEMORY_OVERALLOCATION_BEHAVIOR_ALLOWED_AMD = 1,
@@ -2614,14 +2614,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkFramebufferCreateFlags
+	public enum VkFramebufferCreateFlags : uint32
 	{
 		None = 0,
 		VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkScopeNV
+	public enum VkScopeNV : uint32
 	{
 		None = 0,
 		VK_SCOPE_DEVICE_NV = 1,
@@ -2631,7 +2631,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkComponentTypeNV
+	public enum VkComponentTypeNV : uint32
 	{
 		VK_COMPONENT_TYPE_FLOAT16_NV = 0,
 		VK_COMPONENT_TYPE_FLOAT32_NV = 1,
@@ -2647,7 +2647,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkDeviceDiagnosticsConfigFlagsNV
+	public enum VkDeviceDiagnosticsConfigFlagsNV : uint32
 	{
 		None = 0,
 		VK_DEVICE_DIAGNOSTICS_CONFIG_ENABLE_SHADER_DEBUG_INFO_BIT_NV = 1,
@@ -2656,7 +2656,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkPipelineCreationFeedbackFlagsEXT
+	public enum VkPipelineCreationFeedbackFlagsEXT : uint32
 	{
 		None = 0,
 		VK_PIPELINE_CREATION_FEEDBACK_VALID_BIT_EXT = 1,
@@ -2665,7 +2665,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkFullScreenExclusiveEXT
+	public enum VkFullScreenExclusiveEXT : uint32
 	{
 		VK_FULL_SCREEN_EXCLUSIVE_DEFAULT_EXT = 0,
 		VK_FULL_SCREEN_EXCLUSIVE_ALLOWED_EXT = 1,
@@ -2674,7 +2674,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkPerformanceCounterScopeKHR
+	public enum VkPerformanceCounterScopeKHR : uint32
 	{
 		VK_PERFORMANCE_COUNTER_SCOPE_COMMAND_BUFFER_KHR = 0,
 		VK_PERFORMANCE_COUNTER_SCOPE_RENDER_PASS_KHR = 1,
@@ -2685,7 +2685,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkPerformanceCounterUnitKHR
+	public enum VkPerformanceCounterUnitKHR : uint32
 	{
 		VK_PERFORMANCE_COUNTER_UNIT_GENERIC_KHR = 0,
 		VK_PERFORMANCE_COUNTER_UNIT_PERCENTAGE_KHR = 1,
@@ -2701,7 +2701,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkPerformanceCounterStorageKHR
+	public enum VkPerformanceCounterStorageKHR : uint32
 	{
 		VK_PERFORMANCE_COUNTER_STORAGE_INT32_KHR = 0,
 		VK_PERFORMANCE_COUNTER_STORAGE_INT64_KHR = 1,
@@ -2712,7 +2712,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkPerformanceCounterDescriptionFlagsKHR
+	public enum VkPerformanceCounterDescriptionFlagsKHR : uint32
 	{
 		VK_PERFORMANCE_COUNTER_DESCRIPTION_PERFORMANCE_IMPACTING_BIT_KHR = 1,
 		VK_PERFORMANCE_COUNTER_DESCRIPTION_PERFORMANCE_IMPACTING_KHR = 0,
@@ -2721,45 +2721,45 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkAcquireProfilingLockFlagsKHR
+	public enum VkAcquireProfilingLockFlagsKHR : uint32
 	{
 		None = 0,
 	}
 
 	[AllowDuplicates]
-	public enum VkShaderCorePropertiesFlagsAMD
+	public enum VkShaderCorePropertiesFlagsAMD : uint32
 	{
 		None = 0,
 	}
 
 	[AllowDuplicates]
-	public enum VkPerformanceConfigurationTypeINTEL
+	public enum VkPerformanceConfigurationTypeINTEL : uint32
 	{
 		VK_PERFORMANCE_CONFIGURATION_TYPE_COMMAND_QUEUE_METRICS_DISCOVERY_ACTIVATED_INTEL = 0,
 	}
 
 	[AllowDuplicates]
-	public enum VkQueryPoolSamplingModeINTEL
+	public enum VkQueryPoolSamplingModeINTEL : uint32
 	{
 		VK_QUERY_POOL_SAMPLING_MODE_MANUAL_INTEL = 0,
 	}
 
 	[AllowDuplicates]
-	public enum VkPerformanceOverrideTypeINTEL
+	public enum VkPerformanceOverrideTypeINTEL : uint32
 	{
 		VK_PERFORMANCE_OVERRIDE_TYPE_NULL_HARDWARE_INTEL = 0,
 		VK_PERFORMANCE_OVERRIDE_TYPE_FLUSH_GPU_CACHES_INTEL = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkPerformanceParameterTypeINTEL
+	public enum VkPerformanceParameterTypeINTEL : uint32
 	{
 		VK_PERFORMANCE_PARAMETER_TYPE_HW_COUNTERS_SUPPORTED_INTEL = 0,
 		VK_PERFORMANCE_PARAMETER_TYPE_STREAM_MARKER_VALID_BITS_INTEL = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkPerformanceValueTypeINTEL
+	public enum VkPerformanceValueTypeINTEL : uint32
 	{
 		VK_PERFORMANCE_VALUE_TYPE_UINT32_INTEL = 0,
 		VK_PERFORMANCE_VALUE_TYPE_UINT64_INTEL = 1,
@@ -2769,7 +2769,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkShaderFloatControlsIndependence
+	public enum VkShaderFloatControlsIndependence : uint32
 	{
 		VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_32_BIT_ONLY = 0,
 		VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_ALL = 1,
@@ -2777,7 +2777,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkPipelineExecutableStatisticFormatKHR
+	public enum VkPipelineExecutableStatisticFormatKHR : uint32
 	{
 		VK_PIPELINE_EXECUTABLE_STATISTIC_FORMAT_BOOL32_KHR = 0,
 		VK_PIPELINE_EXECUTABLE_STATISTIC_FORMAT_INT64_KHR = 1,
@@ -2786,7 +2786,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkLineRasterizationModeEXT
+	public enum VkLineRasterizationModeEXT : uint32
 	{
 		VK_LINE_RASTERIZATION_MODE_DEFAULT_EXT = 0,
 		VK_LINE_RASTERIZATION_MODE_RECTANGULAR_EXT = 1,
@@ -2795,19 +2795,19 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkShaderModuleCreateFlags
+	public enum VkShaderModuleCreateFlags : uint32
 	{
 		None = 0,
 	}
 
 	[AllowDuplicates]
-	public enum VkPipelineCompilerControlFlagsAMD
+	public enum VkPipelineCompilerControlFlagsAMD : uint32
 	{
 		None = 0,
 	}
 
 	[AllowDuplicates]
-	public enum VkToolPurposeFlagsEXT
+	public enum VkToolPurposeFlagsEXT : uint32
 	{
 		None = 0,
 		VK_TOOL_PURPOSE_VALIDATION_BIT_EXT = 1,
@@ -2818,7 +2818,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkFragmentShadingRateCombinerOpKHR
+	public enum VkFragmentShadingRateCombinerOpKHR : uint32
 	{
 		VK_FRAGMENT_SHADING_RATE_COMBINER_OP_KEEP_KHR = 0,
 		VK_FRAGMENT_SHADING_RATE_COMBINER_OP_REPLACE_KHR = 1,
@@ -2828,7 +2828,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkFragmentShadingRateNV
+	public enum VkFragmentShadingRateNV : uint32
 	{
 		VK_FRAGMENT_SHADING_RATE_1_INVOCATION_PER_PIXEL_NV = 0,
 		VK_FRAGMENT_SHADING_RATE_1_INVOCATION_PER_1X2_PIXELS_NV = 1,
@@ -2845,14 +2845,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkFragmentShadingRateTypeNV
+	public enum VkFragmentShadingRateTypeNV : uint32
 	{
 		VK_FRAGMENT_SHADING_RATE_TYPE_FRAGMENT_SIZE_NV = 0,
 		VK_FRAGMENT_SHADING_RATE_TYPE_ENUMS_NV = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkAccessFlags2KHR
+	public enum VkAccessFlags2KHR : uint32
 	{
 		VK_ACCESS_2_NONE_KHR = 0,
 		VK_ACCESS_2_INDIRECT_COMMAND_READ_BIT_KHR = 1,
@@ -2882,7 +2882,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkPipelineStageFlags2KHR
+	public enum VkPipelineStageFlags2KHR : uint32
 	{
 		VK_PIPELINE_STAGE_2_NONE_KHR = 0,
 		VK_PIPELINE_STAGE_2_TOP_OF_PIPE_BIT_KHR = 1,
@@ -2916,34 +2916,34 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkSubmitFlagsKHR
+	public enum VkSubmitFlagsKHR : uint32
 	{
 		None = 0,
 		VK_SUBMIT_PROTECTED_BIT_KHR = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkEventCreateFlags
+	public enum VkEventCreateFlags : uint32
 	{
 		None = 0,
 		VK_EVENT_CREATE_DEVICE_ONLY_BIT_KHR = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkPipelineLayoutCreateFlags
+	public enum VkPipelineLayoutCreateFlags : uint32
 	{
 		None = 0,
 	}
 
 	[AllowDuplicates]
-	public enum VkProvokingVertexModeEXT
+	public enum VkProvokingVertexModeEXT : uint32
 	{
 		VK_PROVOKING_VERTEX_MODE_FIRST_VERTEX_EXT = 0,
 		VK_PROVOKING_VERTEX_MODE_LAST_VERTEX_EXT = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkAccelerationStructureMotionInstanceTypeNV
+	public enum VkAccelerationStructureMotionInstanceTypeNV : uint32
 	{
 		VK_ACCELERATION_STRUCTURE_MOTION_INSTANCE_TYPE_STATIC_NV = 0,
 		VK_ACCELERATION_STRUCTURE_MOTION_INSTANCE_TYPE_MATRIX_MOTION_NV = 1,
@@ -2951,7 +2951,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkVideoCodecOperationFlagsKHR
+	public enum VkVideoCodecOperationFlagsKHR : uint32
 	{
 		VK_VIDEO_CODEC_OPERATION_INVALID_BIT_KHR = 0,
 		VK_VIDEO_CODEC_OPERATION_ENCODE_H264_BIT_EXT = 65536,
@@ -2960,7 +2960,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkVideoChromaSubsamplingFlagsKHR
+	public enum VkVideoChromaSubsamplingFlagsKHR : uint32
 	{
 		VK_VIDEO_CHROMA_SUBSAMPLING_INVALID_BIT_KHR = 0,
 		VK_VIDEO_CHROMA_SUBSAMPLING_MONOCHROME_BIT_KHR = 1,
@@ -2970,7 +2970,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkVideoComponentDepthFlagBitsKHR
+	public enum VkVideoComponentDepthFlagBitsKHR : uint32
 	{
 		VK_VIDEO_COMPONENT_BIT_DEPTH_INVALID_KHR = 0,
 		VK_VIDEO_COMPONENT_BIT_DEPTH_8_BIT_KHR = 1,
@@ -2979,7 +2979,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkVideoCapabilitiesFlagsKHR
+	public enum VkVideoCapabilitiesFlagsKHR : uint32
 	{
 		None = 0,
 		VK_VIDEO_CAPABILITIES_PROTECTED_CONTENT_BIT_KHR = 1,
@@ -2987,14 +2987,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkVideoSessionCreateFlagsKHR
+	public enum VkVideoSessionCreateFlagsKHR : uint32
 	{
 		VK_VIDEO_SESSION_CREATE_DEFAULT_KHR = 0,
 		VK_VIDEO_SESSION_CREATE_PROTECTED_CONTENT_BIT_KHR = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkVideoCodingQualityPresetFlagsKHR
+	public enum VkVideoCodingQualityPresetFlagsKHR : uint32
 	{
 		VK_VIDEO_CODING_QUALITY_PRESET_DEFAULT_BIT_KHR = 0,
 		VK_VIDEO_CODING_QUALITY_PRESET_NORMAL_BIT_KHR = 1,
@@ -3003,7 +3003,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkVideoDecodeH264FieldLayoutFlagsEXT
+	public enum VkVideoDecodeH264FieldLayoutFlagsEXT : uint32
 	{
 		VK_VIDEO_DECODE_H264_PROGRESSIVE_PICTURES_ONLY_EXT = 0,
 		VK_VIDEO_DECODE_H264_FIELD_LAYOUT_LINE_INTERLACED_PLANE_BIT_EXT = 1,
@@ -3011,14 +3011,14 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkVideoCodingControlFlagsKHR
+	public enum VkVideoCodingControlFlagsKHR : uint32
 	{
 		VK_VIDEO_CODING_CONTROL_DEFAULT_KHR = 0,
 		VK_VIDEO_CODING_CONTROL_RESET_BIT_KHR = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkQueryResultStatusKHR
+	public enum VkQueryResultStatusKHR : int32
 	{
 		VK_QUERY_RESULT_STATUS_ERROR_KHR = -1,
 		VK_QUERY_RESULT_STATUS_NOT_READY_KHR = 0,
@@ -3026,28 +3026,28 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkVideoDecodeFlagsKHR
+	public enum VkVideoDecodeFlagsKHR : uint32
 	{
 		VK_VIDEO_DECODE_DEFAULT_KHR = 0,
 		VK_VIDEO_DECODE_RESERVED_0_BIT_KHR = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkVideoEncodeFlagsKHR
+	public enum VkVideoEncodeFlagsKHR : uint32
 	{
 		VK_VIDEO_ENCODE_DEFAULT_KHR = 0,
 		VK_VIDEO_ENCODE_RESERVED_0_BIT_KHR = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkVideoEncodeRateControlFlagsKHR
+	public enum VkVideoEncodeRateControlFlagsKHR : uint32
 	{
 		VK_VIDEO_ENCODE_RATE_CONTROL_DEFAULT_KHR = 0,
 		VK_VIDEO_ENCODE_RATE_CONTROL_RESET_BIT_KHR = 1,
 	}
 
 	[AllowDuplicates]
-	public enum VkVideoEncodeRateControlModeFlagsKHR
+	public enum VkVideoEncodeRateControlModeFlagsKHR : uint32
 	{
 		VK_VIDEO_ENCODE_RATE_CONTROL_MODE_NONE_BIT_KHR = 0,
 		VK_VIDEO_ENCODE_RATE_CONTROL_MODE_CBR_BIT_KHR = 1,
@@ -3055,7 +3055,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkVideoEncodeH264CapabilitiesFlagsEXT
+	public enum VkVideoEncodeH264CapabilitiesFlagsEXT : uint32
 	{
 		None = 0,
 		VK_VIDEO_ENCODE_H264_CAPABILITY_CABAC_BIT_EXT = 1,
@@ -3072,7 +3072,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkVideoEncodeH264InputModeFlagsEXT
+	public enum VkVideoEncodeH264InputModeFlagsEXT : uint32
 	{
 		None = 0,
 		VK_VIDEO_ENCODE_H264_INPUT_MODE_FRAME_BIT_EXT = 1,
@@ -3081,7 +3081,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkVideoEncodeH264OutputModeFlagsEXT
+	public enum VkVideoEncodeH264OutputModeFlagsEXT : uint32
 	{
 		None = 0,
 		VK_VIDEO_ENCODE_H264_OUTPUT_MODE_FRAME_BIT_EXT = 1,
@@ -3090,7 +3090,7 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[AllowDuplicates]
-	public enum VkVideoEncodeH264CreateFlagsEXT
+	public enum VkVideoEncodeH264CreateFlagsEXT : uint32
 	{
 		VK_VIDEO_ENCODE_H264_CREATE_DEFAULT_EXT = 0,
 		VK_VIDEO_ENCODE_H264_CREATE_RESERVED_0_BIT_EXT = 1,

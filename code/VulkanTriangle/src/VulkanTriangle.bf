@@ -121,6 +121,8 @@ namespace VulkanTriangle
 
 		private void CleanUp()
 		{
+			delete commandBuffers;
+
 			VulkanNative.vkDestroySemaphore(this.device, this.renderFinishedSemaphore, null);
 			VulkanNative.vkDestroySemaphore(this.device, this.imageAvailableSemaphore, null);
 
@@ -130,6 +132,7 @@ namespace VulkanTriangle
 			{
 			    VulkanNative.vkDestroyFramebuffer(this.device, framebuffer, null);
 			}
+			delete this.swapChainFramebuffers;
 
 			VulkanNative.vkDestroyPipeline(this.device, this.graphicsPipeline, null);
 
@@ -141,6 +144,8 @@ namespace VulkanTriangle
 			{
 			    VulkanNative.vkDestroyImageView(this.device, imageView, null);
 			}
+			delete this.swapChainImageViews;
+			delete swapChainImages;
 
 			VulkanNative.vkDestroySwapchainKHR(this.device, this.swapChain, null);
 

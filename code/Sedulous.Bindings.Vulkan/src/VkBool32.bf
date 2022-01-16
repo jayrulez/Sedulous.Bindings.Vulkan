@@ -19,13 +19,13 @@ namespace Sedulous.Bindings.Vulkan
 		/// <summary>
 		/// The raw value of the <see cref="VkBool32"/>. A value of 0 represents "false", all other values represent "true".
 		/// </summary>
-		public uint Value;
+		public uint32 Value;
 
 		/// <summary>
 		/// Constructs a new <see cref="VkBool32"/> with the given raw value. 
 		/// </summary>
 		/// <param name="value"></param>
-		public this(uint value)
+		public this(uint32 value)
 		{
 		    Value = value;
 		}
@@ -57,7 +57,7 @@ namespace Sedulous.Bindings.Vulkan
 		public static implicit operator bool(VkBool32 b) => b.Value != 0;
 		public static implicit operator uint(VkBool32 b) => b.Value;
 		public static implicit operator VkBool32(bool b) => b ? True : False;
-		public static implicit operator VkBool32(uint value) => VkBool32(value);
+		public static implicit operator VkBool32(uint32 value) => VkBool32(value);
 
 		public static bool operator ==(VkBool32 left, VkBool32 right) => left.Value == right.Value;
 		public static bool operator !=(VkBool32 left, VkBool32 right) => left.Value != right.Value;

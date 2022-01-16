@@ -145,7 +145,7 @@ namespace VulkanTriangle
 		    createInfo.compositeAlpha = VkCompositeAlphaFlagsKHR.VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR;
 		    createInfo.presentMode = presentMode;
 		    createInfo.clipped = true;
-		    createInfo.oldSwapchain = .Null;
+		    createInfo.oldSwapchain = 0;
 
 		    Helpers.CheckErrors(VulkanNative.vkCreateSwapchainKHR(device, &createInfo, null, &swapChain));
 
