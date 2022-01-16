@@ -88,8 +88,8 @@ namespace Sedulous.Bindings.Vulkan
 		public uint32 vendorID;
 		public uint32 deviceID;
 		public VkPhysicalDeviceType deviceType;
-		public char8[256] deviceName;
-		public uint8[16] pipelineCacheUUID;
+		public char8[(int)VulkanNative.VK_MAX_PHYSICAL_DEVICE_NAME_SIZE] deviceName;
+		public uint8[(int)VulkanNative.VK_UUID_SIZE] pipelineCacheUUID;
 		public VkPhysicalDeviceLimits limits;
 		public VkPhysicalDeviceSparseProperties sparseProperties;
 	}
@@ -97,17 +97,17 @@ namespace Sedulous.Bindings.Vulkan
 	[CRepr]
 	public struct VkExtensionProperties
 	{
-		public char8[256] extensionName;
+		public char8[(int)VulkanNative.VK_MAX_EXTENSION_NAME_SIZE] extensionName;
 		public uint32 specVersion;
 	}
 
 	[CRepr]
 	public struct VkLayerProperties
 	{
-		public char8[256] layerName;
+		public char8[(int)VulkanNative.VK_MAX_EXTENSION_NAME_SIZE] layerName;
 		public uint32 specVersion;
 		public uint32 implementationVersion;
-		public char8[256] description;
+		public char8[(int)VulkanNative.VK_MAX_DESCRIPTION_SIZE] description;
 	}
 
 	[CRepr]
@@ -560,7 +560,7 @@ namespace Sedulous.Bindings.Vulkan
 	{
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO;
 		public void* pNext;
-		public uint32 flags;
+		public VkShaderModuleCreateFlags flags;
 		public uint codeSize;
 		public uint32* pCode;
 	}
@@ -764,7 +764,7 @@ namespace Sedulous.Bindings.Vulkan
 	{
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO;
 		public void* pNext;
-		public VkPipelineColorBlendStateCreateFlags flags;
+		public uint32 flags;
 		public VkBool32 logicOpEnable;
 		public VkLogicOp logicOp;
 		public uint32 attachmentCount;
@@ -799,7 +799,7 @@ namespace Sedulous.Bindings.Vulkan
 	{
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO;
 		public void* pNext;
-		public VkPipelineDepthStencilStateCreateFlags flags;
+		public uint32 flags;
 		public VkBool32 depthTestEnable;
 		public VkBool32 depthWriteEnable;
 		public VkCompareOp depthCompareOp;
@@ -843,16 +843,6 @@ namespace Sedulous.Bindings.Vulkan
 		public VkPipelineCacheCreateFlags flags;
 		public uint initialDataSize;
 		public void* pInitialData;
-	}
-
-	[CRepr]
-	public struct VkPipelineCacheHeaderVersionOne
-	{
-		public uint32 headerSize;
-		public VkPipelineCacheHeaderVersion headerVersion;
-		public uint32 vendorID;
-		public uint32 deviceID;
-		public uint8[16] pipelineCacheUUID;
 	}
 
 	[CRepr]
@@ -1980,8 +1970,8 @@ namespace Sedulous.Bindings.Vulkan
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DRIVER_PROPERTIES;
 		public void* pNext;
 		public VkDriverId driverID;
-		public char8[256] driverName;
-		public char8[256] driverInfo;
+		public char8[(int)VulkanNative.VK_MAX_DRIVER_NAME_SIZE] driverName;
+		public char8[(int)VulkanNative.VK_MAX_DRIVER_INFO_SIZE] driverInfo;
 		public VkConformanceVersion conformanceVersion;
 	}
 
@@ -2065,9 +2055,9 @@ namespace Sedulous.Bindings.Vulkan
 	{
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ID_PROPERTIES;
 		public void* pNext;
-		public uint8[16] deviceUUID;
-		public uint8[16] driverUUID;
-		public uint8[8] deviceLUID;
+		public uint8[(int)VulkanNative.VK_UUID_SIZE] deviceUUID;
+		public uint8[(int)VulkanNative.VK_UUID_SIZE] driverUUID;
+		public uint8[(int)VulkanNative.VK_LUID_SIZE] deviceLUID;
 		public uint32 deviceNodeMask;
 		public VkBool32 deviceLUIDValid;
 	}
@@ -2570,7 +2560,7 @@ namespace Sedulous.Bindings.Vulkan
 	{
 		public VkStructureType sType;
 		public void* pNext;
-		public uint32[32] presentMask;
+		public uint32[(int)VulkanNative.VK_MAX_DEVICE_GROUP_SIZE] presentMask;
 		public VkDeviceGroupPresentModeFlagsKHR modes;
 	}
 
@@ -2661,31 +2651,6 @@ namespace Sedulous.Bindings.Vulkan
 	{
 		public float x;
 		public float y;
-	}
-
-	[CRepr]
-	public struct VkPhysicalDevicePresentIdFeaturesKHR
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_ID_FEATURES_KHR;
-		public void* pNext;
-		public VkBool32 presentId;
-	}
-
-	[CRepr]
-	public struct VkPresentIdKHR
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PRESENT_ID_KHR;
-		public void* pNext;
-		public uint32 swapchainCount;
-		public uint64* pPresentIds;
-	}
-
-	[CRepr]
-	public struct VkPhysicalDevicePresentWaitFeaturesKHR
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_WAIT_FEATURES_KHR;
-		public void* pNext;
-		public VkBool32 presentWait;
 	}
 
 	[CRepr]
@@ -2970,14 +2935,6 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[CRepr]
-	public struct VkDeviceBufferMemoryRequirementsKHR
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_DEVICE_BUFFER_MEMORY_REQUIREMENTS_KHR;
-		public void* pNext;
-		public VkBufferCreateInfo* pCreateInfo;
-	}
-
-	[CRepr]
 	public struct VkImageMemoryRequirementsInfo2
 	{
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_IMAGE_MEMORY_REQUIREMENTS_INFO_2;
@@ -2991,15 +2948,6 @@ namespace Sedulous.Bindings.Vulkan
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_IMAGE_SPARSE_MEMORY_REQUIREMENTS_INFO_2;
 		public void* pNext;
 		public VkImage image;
-	}
-
-	[CRepr]
-	public struct VkDeviceImageMemoryRequirementsKHR
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_DEVICE_IMAGE_MEMORY_REQUIREMENTS_KHR;
-		public void* pNext;
-		public VkImageCreateInfo* pCreateInfo;
-		public VkImageAspectFlags planeAspect;
 	}
 
 	[CRepr]
@@ -3389,22 +3337,6 @@ namespace Sedulous.Bindings.Vulkan
 		public void* pNext;
 		public uint32 maxPerSetDescriptors;
 		public uint64 maxMemoryAllocationSize;
-	}
-
-	[CRepr]
-	public struct VkPhysicalDeviceMaintenance4FeaturesKHR
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_4_FEATURES_KHR;
-		public void* pNext;
-		public VkBool32 maintenance4;
-	}
-
-	[CRepr]
-	public struct VkPhysicalDeviceMaintenance4PropertiesKHR
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_4_PROPERTIES_KHR;
-		public void* pNext;
-		public uint64 maxBufferSize;
 	}
 
 	[CRepr]
@@ -4113,25 +4045,6 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[CRepr]
-	public struct VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_2_FEATURES_EXT;
-		public void* pNext;
-		public VkBool32 shaderBufferFloat16Atomics;
-		public VkBool32 shaderBufferFloat16AtomicAdd;
-		public VkBool32 shaderBufferFloat16AtomicMinMax;
-		public VkBool32 shaderBufferFloat32AtomicMinMax;
-		public VkBool32 shaderBufferFloat64AtomicMinMax;
-		public VkBool32 shaderSharedFloat16Atomics;
-		public VkBool32 shaderSharedFloat16AtomicAdd;
-		public VkBool32 shaderSharedFloat16AtomicMinMax;
-		public VkBool32 shaderSharedFloat32AtomicMinMax;
-		public VkBool32 shaderSharedFloat64AtomicMinMax;
-		public VkBool32 shaderImageFloat32AtomicMinMax;
-		public VkBool32 sparseImageFloat32AtomicMinMax;
-	}
-
-	[CRepr]
 	public struct VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT
 	{
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_FEATURES_EXT;
@@ -4337,14 +4250,6 @@ namespace Sedulous.Bindings.Vulkan
 		public VkExtent2D shadingRateTexelSize;
 		public uint32 shadingRatePaletteSize;
 		public uint32 shadingRateMaxCoarseSamples;
-	}
-
-	[CRepr]
-	public struct VkPhysicalDeviceInvocationMaskFeaturesHUAWEI
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INVOCATION_MASK_FEATURES_HUAWEI;
-		public void* pNext;
-		public VkBool32 invocationMask;
 	}
 
 	[CRepr]
@@ -4759,14 +4664,6 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[CRepr]
-	public struct VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_FEATURES_QCOM;
-		public void* pNext;
-		public VkBool32 fragmentDensityMapOffset;
-	}
-
-	[CRepr]
 	public struct VkPhysicalDeviceFragmentDensityMapPropertiesEXT
 	{
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_PROPERTIES_EXT;
@@ -4788,28 +4685,11 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[CRepr]
-	public struct VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_PROPERTIES_QCOM;
-		public void* pNext;
-		public VkExtent2D fragmentDensityOffsetGranularity;
-	}
-
-	[CRepr]
 	public struct VkRenderPassFragmentDensityMapCreateInfoEXT
 	{
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_RENDER_PASS_FRAGMENT_DENSITY_MAP_CREATE_INFO_EXT;
 		public void* pNext;
 		public VkAttachmentReference fragmentDensityMapAttachment;
-	}
-
-	[CRepr]
-	public struct VkSubpassFragmentDensityMapOffsetEndInfoQCOM
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_SUBPASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO_QCOM;
-		public void* pNext;
-		public uint32 fragmentDensityOffsetCount;
-		public VkOffset2D* pFragmentDensityOffsets;
 	}
 
 	[CRepr]
@@ -4858,8 +4738,8 @@ namespace Sedulous.Bindings.Vulkan
 	{
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_BUDGET_PROPERTIES_EXT;
 		public void* pNext;
-		public uint64[16] heapBudget;
-		public uint64[16] heapUsage;
+		public uint64[(int)VulkanNative.VK_MAX_MEMORY_HEAPS] heapBudget;
+		public uint64[(int)VulkanNative.VK_MAX_MEMORY_HEAPS] heapUsage;
 	}
 
 	[CRepr]
@@ -4876,14 +4756,6 @@ namespace Sedulous.Bindings.Vulkan
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_MEMORY_PRIORITY_ALLOCATE_INFO_EXT;
 		public void* pNext;
 		public float priority;
-	}
-
-	[CRepr]
-	public struct VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PAGEABLE_DEVICE_LOCAL_MEMORY_FEATURES_EXT;
-		public void* pNext;
-		public VkBool32 pageableDeviceLocalMemory;
 	}
 
 	[CRepr]
@@ -5128,7 +5000,7 @@ namespace Sedulous.Bindings.Vulkan
 		public VkPerformanceCounterUnitKHR unit;
 		public VkPerformanceCounterScopeKHR vkscope;
 		public VkPerformanceCounterStorageKHR storage;
-		public uint8[16] uuid;
+		public uint8[(int)VulkanNative.VK_UUID_SIZE] uuid;
 	}
 
 	[CRepr]
@@ -5137,9 +5009,9 @@ namespace Sedulous.Bindings.Vulkan
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_PERFORMANCE_COUNTER_DESCRIPTION_KHR;
 		public void* pNext;
 		public VkPerformanceCounterDescriptionFlagsKHR flags;
-		public char8[256] name;
-		public char8[256] category;
-		public char8[256] description;
+		public char8[(int)VulkanNative.VK_MAX_DESCRIPTION_SIZE] name;
+		public char8[(int)VulkanNative.VK_MAX_DESCRIPTION_SIZE] category;
+		public char8[(int)VulkanNative.VK_MAX_DESCRIPTION_SIZE] description;
 	}
 
 	[CRepr]
@@ -5331,15 +5203,6 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[CRepr]
-	public struct VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIMITIVE_TOPOLOGY_LIST_RESTART_FEATURES_EXT;
-		public void* pNext;
-		public VkBool32 primitiveTopologyListRestart;
-		public VkBool32 primitiveTopologyPatchListRestart;
-	}
-
-	[CRepr]
 	public struct VkAttachmentDescriptionStencilLayout
 	{
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_ATTACHMENT_DESCRIPTION_STENCIL_LAYOUT;
@@ -5370,8 +5233,8 @@ namespace Sedulous.Bindings.Vulkan
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_PROPERTIES_KHR;
 		public void* pNext;
 		public VkShaderStageFlags stages;
-		public char8[256] name;
-		public char8[256] description;
+		public char8[(int)VulkanNative.VK_MAX_DESCRIPTION_SIZE] name;
+		public char8[(int)VulkanNative.VK_MAX_DESCRIPTION_SIZE] description;
 		public uint32 subgroupSize;
 	}
 
@@ -5389,8 +5252,8 @@ namespace Sedulous.Bindings.Vulkan
 	{
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_STATISTIC_KHR;
 		public void* pNext;
-		public char8[256] name;
-		public char8[256] description;
+		public char8[(int)VulkanNative.VK_MAX_DESCRIPTION_SIZE] name;
+		public char8[(int)VulkanNative.VK_MAX_DESCRIPTION_SIZE] description;
 		public VkPipelineExecutableStatisticFormatKHR format;
 		public VkPipelineExecutableStatisticValueKHR value;
 	}
@@ -5400,8 +5263,8 @@ namespace Sedulous.Bindings.Vulkan
 	{
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_INTERNAL_REPRESENTATION_KHR;
 		public void* pNext;
-		public char8[256] name;
-		public char8[256] description;
+		public char8[(int)VulkanNative.VK_MAX_DESCRIPTION_SIZE] name;
+		public char8[(int)VulkanNative.VK_MAX_DESCRIPTION_SIZE] description;
 		public VkBool32 isText;
 		public uint dataSize;
 		public void* pData;
@@ -5465,7 +5328,7 @@ namespace Sedulous.Bindings.Vulkan
 	[CRepr]
 	public struct VkSubpassShadingPipelineCreateInfoHUAWEI
 	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_SUBPASS_SHADING_PIPELINE_CREATE_INFO_HUAWEI;
+		public VkStructureType sType;
 		public void* pNext;
 		public VkRenderPass renderPass;
 		public uint32 subpass;
@@ -5559,9 +5422,9 @@ namespace Sedulous.Bindings.Vulkan
 	{
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_1_PROPERTIES;
 		public void* pNext;
-		public uint8[16] deviceUUID;
-		public uint8[16] driverUUID;
-		public uint8[8] deviceLUID;
+		public uint8[(int)VulkanNative.VK_UUID_SIZE] deviceUUID;
+		public uint8[(int)VulkanNative.VK_UUID_SIZE] driverUUID;
+		public uint8[(int)VulkanNative.VK_LUID_SIZE] deviceLUID;
 		public uint32 deviceNodeMask;
 		public VkBool32 deviceLUIDValid;
 		public uint32 subgroupSize;
@@ -5636,8 +5499,8 @@ namespace Sedulous.Bindings.Vulkan
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_PROPERTIES;
 		public void* pNext;
 		public VkDriverId driverID;
-		public char8[256] driverName;
-		public char8[256] driverInfo;
+		public char8[(int)VulkanNative.VK_MAX_DRIVER_NAME_SIZE] driverName;
+		public char8[(int)VulkanNative.VK_MAX_DRIVER_INFO_SIZE] driverInfo;
 		public VkConformanceVersion conformanceVersion;
 		public VkShaderFloatControlsIndependence denormBehaviorIndependence;
 		public VkShaderFloatControlsIndependence roundingModeIndependence;
@@ -5710,11 +5573,11 @@ namespace Sedulous.Bindings.Vulkan
 	{
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TOOL_PROPERTIES_EXT;
 		public void* pNext;
-		public char8[256] name;
-		public char8[256] version;
+		public char8[(int)VulkanNative.VK_MAX_EXTENSION_NAME_SIZE] name;
+		public char8[(int)VulkanNative.VK_MAX_EXTENSION_NAME_SIZE] version;
 		public VkToolPurposeFlagsEXT purposes;
-		public char8[256] description;
-		public char8[256] layer;
+		public char8[(int)VulkanNative.VK_MAX_DESCRIPTION_SIZE] description;
+		public char8[(int)VulkanNative.VK_MAX_EXTENSION_NAME_SIZE] layer;
 	}
 
 	[CRepr]
@@ -5741,24 +5604,6 @@ namespace Sedulous.Bindings.Vulkan
 		public void* pNext;
 		public VkBool32 customBorderColors;
 		public VkBool32 customBorderColorWithoutFormat;
-	}
-
-	[CRepr]
-	public struct VkSamplerBorderColorComponentMappingCreateInfoEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_SAMPLER_BORDER_COLOR_COMPONENT_MAPPING_CREATE_INFO_EXT;
-		public void* pNext;
-		public VkComponentMapping components;
-		public VkBool32 srgb;
-	}
-
-	[CRepr]
-	public struct VkPhysicalDeviceBorderColorSwizzleFeaturesEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BORDER_COLOR_SWIZZLE_FEATURES_EXT;
-		public void* pNext;
-		public VkBool32 borderColorSwizzle;
-		public VkBool32 borderColorSwizzleFromImage;
 	}
 
 	[CRepr]
@@ -6367,35 +6212,11 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[CRepr]
-	public struct VkPhysicalDeviceDepthClipControlFeaturesEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLIP_CONTROL_FEATURES_EXT;
-		public void* pNext;
-		public VkBool32 depthClipControl;
-	}
-
-	[CRepr]
-	public struct VkPipelineViewportDepthClipControlCreateInfoEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_DEPTH_CLIP_CONTROL_CREATE_INFO_EXT;
-		public void* pNext;
-		public VkBool32 negativeOneToOne;
-	}
-
-	[CRepr]
 	public struct VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT
 	{
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_INPUT_DYNAMIC_STATE_FEATURES_EXT;
 		public void* pNext;
 		public VkBool32 vertexInputDynamicState;
-	}
-
-	[CRepr]
-	public struct VkPhysicalDeviceExternalMemoryRDMAFeaturesNV
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_RDMA_FEATURES_NV;
-		public void* pNext;
-		public VkBool32 externalMemoryRDMA;
 	}
 
 	[CRepr]
@@ -6563,14 +6384,6 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[CRepr]
-	public struct VkQueueFamilyQueryResultStatusProperties2KHR
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_QUEUE_FAMILY_QUERY_RESULT_STATUS_PROPERTIES_2_KHR;
-		public void* pNext;
-		public VkBool32 supported;
-	}
-
-	[CRepr]
 	public struct VkVideoProfilesKHR
 	{
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_VIDEO_PROFILES_KHR;
@@ -6612,7 +6425,7 @@ namespace Sedulous.Bindings.Vulkan
 	{
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_VIDEO_CAPABILITIES_KHR;
 		public void* pNext;
-		public VkVideoCapabilityFlagsKHR capabilityFlags;
+		public VkVideoCapabilitiesFlagsKHR capabilityFlags;
 		public uint64 minBitstreamBufferOffsetAlignment;
 		public uint64 minBitstreamBufferSizeAlignment;
 		public VkExtent2D videoPictureExtentGranularity;
@@ -6685,7 +6498,7 @@ namespace Sedulous.Bindings.Vulkan
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_PROFILE_EXT;
 		public void* pNext;
 		public void* stdProfileIdc;
-		public VkVideoDecodeH264PictureLayoutFlagsEXT pictureLayout;
+		public VkVideoDecodeH264FieldLayoutFlagsEXT fieldLayout;
 	}
 
 	[CRepr]
@@ -6895,7 +6708,6 @@ namespace Sedulous.Bindings.Vulkan
 		public VkVideoReferenceSlotKHR* pSetupReferenceSlot;
 		public uint32 referenceSlotCount;
 		public VkVideoReferenceSlotKHR* pReferenceSlots;
-		public uint32 precedingExternallyEncodedBytes;
 	}
 
 	[CRepr]
@@ -6905,21 +6717,11 @@ namespace Sedulous.Bindings.Vulkan
 		public void* pNext;
 		public VkVideoEncodeRateControlFlagsKHR flags;
 		public VkVideoEncodeRateControlModeFlagsKHR rateControlMode;
-		public uint8 layerCount;
-		public VkVideoEncodeRateControlLayerInfoKHR* pLayerConfigs;
-	}
-
-	[CRepr]
-	public struct VkVideoEncodeRateControlLayerInfoKHR
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_VIDEO_ENCODE_RATE_CONTROL_LAYER_INFO_KHR;
-		public void* pNext;
 		public uint32 averageBitrate;
-		public uint32 maxBitrate;
-		public uint32 frameRateNumerator;
-		public uint32 frameRateDenominator;
+		public uint16 peakToAverageBitrateRatio;
+		public uint16 frameRateNumerator;
+		public uint16 frameRateDenominator;
 		public uint32 virtualBufferSizeInMs;
-		public uint32 initialVirtualBufferSizeInMs;
 	}
 
 	[CRepr]
@@ -6927,7 +6729,7 @@ namespace Sedulous.Bindings.Vulkan
 	{
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_CAPABILITIES_EXT;
 		public void* pNext;
-		public VkVideoEncodeH264CapabilityFlagsEXT flags;
+		public VkVideoEncodeH264CapabilitiesFlagsEXT flags;
 		public VkVideoEncodeH264InputModeFlagsEXT inputModeFlags;
 		public VkVideoEncodeH264OutputModeFlagsEXT outputModeFlags;
 		public VkExtent2D minPictureSizeInMbs;
@@ -7024,208 +6826,9 @@ namespace Sedulous.Bindings.Vulkan
 		public VkVideoEncodeH264DpbSlotInfoEXT* pRefFinalList0Entries;
 		public uint8 refFinalList1EntryCount;
 		public VkVideoEncodeH264DpbSlotInfoEXT* pRefFinalList1Entries;
-	}
-
-	[CRepr]
-	public struct VkVideoEncodeH264RateControlInfoEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_RATE_CONTROL_INFO_EXT;
-		public void* pNext;
-		public uint32 gopFrameCount;
-		public uint32 idrPeriod;
-		public uint32 consecutiveBFrameCount;
-		public VkVideoEncodeH264RateControlStructureFlagsEXT rateControlStructure;
-		public uint8 temporalLayerCount;
-	}
-
-	[CRepr]
-	public struct VkVideoEncodeH264QpEXT
-	{
-		public int32 qpI;
-		public int32 qpP;
-		public int32 qpB;
-	}
-
-	[CRepr]
-	public struct VkVideoEncodeH264FrameSizeEXT
-	{
-		public uint32 frameISize;
-		public uint32 framePSize;
-		public uint32 frameBSize;
-	}
-
-	[CRepr]
-	public struct VkVideoEncodeH264RateControlLayerInfoEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_RATE_CONTROL_LAYER_INFO_EXT;
-		public void* pNext;
-		public uint8 temporalLayerId;
-		public VkBool32 useInitialRcQp;
-		public VkVideoEncodeH264QpEXT initialRcQp;
-		public VkBool32 useMinQp;
-		public VkVideoEncodeH264QpEXT minQp;
-		public VkBool32 useMaxQp;
-		public VkVideoEncodeH264QpEXT maxQp;
-		public VkBool32 useMaxFrameSize;
-		public VkVideoEncodeH264FrameSizeEXT maxFrameSize;
-	}
-
-	[CRepr]
-	public struct VkVideoEncodeH265CapabilitiesEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_CAPABILITIES_EXT;
-		public void* pNext;
-		public uint32 flags;
-		public VkVideoEncodeH265InputModeFlagsEXT inputModeFlags;
-		public VkVideoEncodeH265OutputModeFlagsEXT outputModeFlags;
-		public VkVideoEncodeH265CtbSizeFlagsEXT ctbSizes;
-		public VkExtent2D inputImageDataAlignment;
-		public uint8 maxNumL0ReferenceForP;
-		public uint8 maxNumL0ReferenceForB;
-		public uint8 maxNumL1Reference;
-		public uint8 maxNumSubLayers;
-		public uint8 qualityLevelCount;
-		public VkExtensionProperties stdExtensionVersion;
-	}
-
-	[CRepr]
-	public struct VkVideoEncodeH265SessionCreateInfoEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_SESSION_CREATE_INFO_EXT;
-		public void* pNext;
-		public uint32 flags;
-		public VkExtensionProperties* pStdExtensionVersion;
-	}
-
-	[CRepr]
-	public struct VkVideoEncodeH265SessionParametersAddInfoEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_SESSION_PARAMETERS_ADD_INFO_EXT;
-		public void* pNext;
-		public uint32 vpsStdCount;
-		public void* pVpsStd;
-		public uint32 spsStdCount;
-		public void* pSpsStd;
-		public uint32 ppsStdCount;
-		public void* pPpsStd;
-	}
-
-	[CRepr]
-	public struct VkVideoEncodeH265SessionParametersCreateInfoEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_SESSION_PARAMETERS_CREATE_INFO_EXT;
-		public void* pNext;
-		public uint32 maxVpsStdCount;
-		public uint32 maxSpsStdCount;
-		public uint32 maxPpsStdCount;
-		public VkVideoEncodeH265SessionParametersAddInfoEXT* pParametersAddInfo;
-	}
-
-	[CRepr]
-	public struct VkVideoEncodeH265VclFrameInfoEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_VCL_FRAME_INFO_EXT;
-		public void* pNext;
-		public VkVideoEncodeH265ReferenceListsEXT* pReferenceFinalLists;
-		public uint32 naluSliceEntryCount;
-		public VkVideoEncodeH265NaluSliceEXT* pNaluSliceEntries;
-		public void* pCurrentPictureInfo;
-	}
-
-	[CRepr]
-	public struct VkVideoEncodeH265EmitPictureParametersEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_EMIT_PICTURE_PARAMETERS_EXT;
-		public void* pNext;
-		public uint8 vpsId;
-		public uint8 spsId;
-		public VkBool32 emitVpsEnable;
-		public VkBool32 emitSpsEnable;
-		public uint32 ppsIdEntryCount;
-		public uint8* ppsIdEntries;
-	}
-
-	[CRepr]
-	public struct VkVideoEncodeH265NaluSliceEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_NALU_SLICE_EXT;
-		public void* pNext;
-		public uint32 ctbCount;
-		public VkVideoEncodeH265ReferenceListsEXT* pReferenceFinalLists;
-		public void* pSliceHeaderStd;
-	}
-
-	[CRepr]
-	public struct VkVideoEncodeH265RateControlInfoEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_RATE_CONTROL_INFO_EXT;
-		public void* pNext;
-		public uint32 gopFrameCount;
-		public uint32 idrPeriod;
-		public uint32 consecutiveBFrameCount;
-		public VkVideoEncodeH265RateControlStructureFlagsEXT rateControlStructure;
-		public uint8 subLayerCount;
-	}
-
-	[CRepr]
-	public struct VkVideoEncodeH265QpEXT
-	{
-		public int32 qpI;
-		public int32 qpP;
-		public int32 qpB;
-	}
-
-	[CRepr]
-	public struct VkVideoEncodeH265FrameSizeEXT
-	{
-		public uint32 frameISize;
-		public uint32 framePSize;
-		public uint32 frameBSize;
-	}
-
-	[CRepr]
-	public struct VkVideoEncodeH265RateControlLayerInfoEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_RATE_CONTROL_LAYER_INFO_EXT;
-		public void* pNext;
-		public uint8 temporalId;
-		public VkBool32 useInitialRcQp;
-		public VkVideoEncodeH265QpEXT initialRcQp;
-		public VkBool32 useMinQp;
-		public VkVideoEncodeH265QpEXT minQp;
-		public VkBool32 useMaxQp;
-		public VkVideoEncodeH265QpEXT maxQp;
-		public VkBool32 useMaxFrameSize;
-		public VkVideoEncodeH265FrameSizeEXT maxFrameSize;
-	}
-
-	[CRepr]
-	public struct VkVideoEncodeH265ProfileEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_PROFILE_EXT;
-		public void* pNext;
-		public void* stdProfileIdc;
-	}
-
-	[CRepr]
-	public struct VkVideoEncodeH265DpbSlotInfoEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_DPB_SLOT_INFO_EXT;
-		public void* pNext;
-		public int8 slotIndex;
-		public void* pStdReferenceInfo;
-	}
-
-	[CRepr]
-	public struct VkVideoEncodeH265ReferenceListsEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_REFERENCE_LISTS_EXT;
-		public void* pNext;
-		public uint8 referenceList0EntryCount;
-		public VkVideoEncodeH265DpbSlotInfoEXT* pReferenceList0Entries;
-		public uint8 referenceList1EntryCount;
-		public VkVideoEncodeH265DpbSlotInfoEXT* pReferenceList1Entries;
-		public void* pReferenceModifications;
+		public uint32 precedingNaluBytes;
+		public uint8 minQp;
+		public uint8 maxQp;
 	}
 
 	[CRepr]
@@ -7318,51 +6921,6 @@ namespace Sedulous.Bindings.Vulkan
 	}
 
 	[CRepr]
-	public struct VkPhysicalDeviceShaderIntegerDotProductFeaturesKHR
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_FEATURES_KHR;
-		public void* pNext;
-		public VkBool32 shaderIntegerDotProduct;
-	}
-
-	[CRepr]
-	public struct VkPhysicalDeviceShaderIntegerDotProductPropertiesKHR
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_PROPERTIES_KHR;
-		public void* pNext;
-		public VkBool32 integerDotProduct8BitUnsignedAccelerated;
-		public VkBool32 integerDotProduct8BitSignedAccelerated;
-		public VkBool32 integerDotProduct8BitMixedSignednessAccelerated;
-		public VkBool32 integerDotProduct4x8BitPackedUnsignedAccelerated;
-		public VkBool32 integerDotProduct4x8BitPackedSignedAccelerated;
-		public VkBool32 integerDotProduct4x8BitPackedMixedSignednessAccelerated;
-		public VkBool32 integerDotProduct16BitUnsignedAccelerated;
-		public VkBool32 integerDotProduct16BitSignedAccelerated;
-		public VkBool32 integerDotProduct16BitMixedSignednessAccelerated;
-		public VkBool32 integerDotProduct32BitUnsignedAccelerated;
-		public VkBool32 integerDotProduct32BitSignedAccelerated;
-		public VkBool32 integerDotProduct32BitMixedSignednessAccelerated;
-		public VkBool32 integerDotProduct64BitUnsignedAccelerated;
-		public VkBool32 integerDotProduct64BitSignedAccelerated;
-		public VkBool32 integerDotProduct64BitMixedSignednessAccelerated;
-		public VkBool32 integerDotProductAccumulatingSaturating8BitUnsignedAccelerated;
-		public VkBool32 integerDotProductAccumulatingSaturating8BitSignedAccelerated;
-		public VkBool32 integerDotProductAccumulatingSaturating8BitMixedSignednessAccelerated;
-		public VkBool32 integerDotProductAccumulatingSaturating4x8BitPackedUnsignedAccelerated;
-		public VkBool32 integerDotProductAccumulatingSaturating4x8BitPackedSignedAccelerated;
-		public VkBool32 integerDotProductAccumulatingSaturating4x8BitPackedMixedSignednessAccelerated;
-		public VkBool32 integerDotProductAccumulatingSaturating16BitUnsignedAccelerated;
-		public VkBool32 integerDotProductAccumulatingSaturating16BitSignedAccelerated;
-		public VkBool32 integerDotProductAccumulatingSaturating16BitMixedSignednessAccelerated;
-		public VkBool32 integerDotProductAccumulatingSaturating32BitUnsignedAccelerated;
-		public VkBool32 integerDotProductAccumulatingSaturating32BitSignedAccelerated;
-		public VkBool32 integerDotProductAccumulatingSaturating32BitMixedSignednessAccelerated;
-		public VkBool32 integerDotProductAccumulatingSaturating64BitUnsignedAccelerated;
-		public VkBool32 integerDotProductAccumulatingSaturating64BitSignedAccelerated;
-		public VkBool32 integerDotProductAccumulatingSaturating64BitMixedSignednessAccelerated;
-	}
-
-	[CRepr]
 	public struct VkPhysicalDeviceDrmPropertiesEXT
 	{
 		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DRM_PROPERTIES_EXT;
@@ -7452,308 +7010,6 @@ namespace Sedulous.Bindings.Vulkan
 		public VkAccelerationStructureMotionInstanceTypeNV type;
 		public uint32 flags;
 		public VkAccelerationStructureMotionInstanceDataNV data;
-	}
-
-	[CRepr]
-	public struct VkMemoryGetRemoteAddressInfoNV
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_MEMORY_GET_REMOTE_ADDRESS_INFO_NV;
-		public void* pNext;
-		public VkDeviceMemory memory;
-		public VkExternalMemoryHandleTypeFlags handleType;
-	}
-
-	[CRepr]
-	public struct VkImportMemoryBufferCollectionFUCHSIA
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_IMPORT_MEMORY_BUFFER_COLLECTION_FUCHSIA;
-		public void* pNext;
-		public VkBufferCollectionFUCHSIA collection;
-		public uint32 index;
-	}
-
-	[CRepr]
-	public struct VkBufferCollectionImageCreateInfoFUCHSIA
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_BUFFER_COLLECTION_IMAGE_CREATE_INFO_FUCHSIA;
-		public void* pNext;
-		public VkBufferCollectionFUCHSIA collection;
-		public uint32 index;
-	}
-
-	[CRepr]
-	public struct VkBufferCollectionBufferCreateInfoFUCHSIA
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_BUFFER_COLLECTION_BUFFER_CREATE_INFO_FUCHSIA;
-		public void* pNext;
-		public VkBufferCollectionFUCHSIA collection;
-		public uint32 index;
-	}
-
-	[CRepr]
-	public struct VkBufferCollectionCreateInfoFUCHSIA
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_BUFFER_COLLECTION_CREATE_INFO_FUCHSIA;
-		public void* pNext;
-		public void* collectionToken;
-	}
-
-	[CRepr]
-	public struct VkBufferCollectionPropertiesFUCHSIA
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_BUFFER_COLLECTION_PROPERTIES_FUCHSIA;
-		public void* pNext;
-		public uint32 memoryTypeBits;
-		public uint32 bufferCount;
-		public uint32 createInfoIndex;
-		public uint64 sysmemPixelFormat;
-		public VkFormatFeatureFlags formatFeatures;
-		public VkSysmemColorSpaceFUCHSIA sysmemColorSpaceIndex;
-		public VkComponentMapping samplerYcbcrConversionComponents;
-		public VkSamplerYcbcrModelConversion suggestedYcbcrModel;
-		public VkSamplerYcbcrRange suggestedYcbcrRange;
-		public VkChromaLocation suggestedXChromaOffset;
-		public VkChromaLocation suggestedYChromaOffset;
-	}
-
-	[CRepr]
-	public struct VkBufferConstraintsInfoFUCHSIA
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_BUFFER_CONSTRAINTS_INFO_FUCHSIA;
-		public void* pNext;
-		public VkBufferCreateInfo createInfo;
-		public VkFormatFeatureFlags requiredFormatFeatures;
-		public VkBufferCollectionConstraintsInfoFUCHSIA bufferCollectionConstraints;
-	}
-
-	[CRepr]
-	public struct VkSysmemColorSpaceFUCHSIA
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_SYSMEM_COLOR_SPACE_FUCHSIA;
-		public void* pNext;
-		public uint32 colorSpace;
-	}
-
-	[CRepr]
-	public struct VkImageFormatConstraintsInfoFUCHSIA
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_IMAGE_FORMAT_CONSTRAINTS_INFO_FUCHSIA;
-		public void* pNext;
-		public VkImageCreateInfo imageCreateInfo;
-		public VkFormatFeatureFlags requiredFormatFeatures;
-		public uint32 flags;
-		public uint64 sysmemPixelFormat;
-		public uint32 colorSpaceCount;
-		public VkSysmemColorSpaceFUCHSIA* pColorSpaces;
-	}
-
-	[CRepr]
-	public struct VkImageConstraintsInfoFUCHSIA
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_IMAGE_CONSTRAINTS_INFO_FUCHSIA;
-		public void* pNext;
-		public uint32 formatConstraintsCount;
-		public VkImageFormatConstraintsInfoFUCHSIA* pFormatConstraints;
-		public VkBufferCollectionConstraintsInfoFUCHSIA bufferCollectionConstraints;
-		public VkImageConstraintsInfoFlagsFUCHSIA flags;
-	}
-
-	[CRepr]
-	public struct VkBufferCollectionConstraintsInfoFUCHSIA
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_BUFFER_COLLECTION_CONSTRAINTS_INFO_FUCHSIA;
-		public void* pNext;
-		public uint32 minBufferCount;
-		public uint32 maxBufferCount;
-		public uint32 minBufferCountForCamping;
-		public uint32 minBufferCountForDedicatedSlack;
-		public uint32 minBufferCountForSharedSlack;
-	}
-
-	[CRepr]
-	public struct VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RGBA10X6_FORMATS_FEATURES_EXT;
-		public void* pNext;
-		public VkBool32 formatRgba10x6WithoutYCbCrSampler;
-	}
-
-	[CRepr]
-	public struct VkFormatProperties3KHR
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_3_KHR;
-		public void* pNext;
-		public uint64 linearTilingFeatures;
-		public uint64 optimalTilingFeatures;
-		public uint64 bufferFeatures;
-	}
-
-	[CRepr]
-	public struct VkDrmFormatModifierPropertiesList2EXT
-	{
-		public VkStructureType sType;
-		public void* pNext;
-		public uint32 drmFormatModifierCount;
-		public VkDrmFormatModifierProperties2EXT* pDrmFormatModifierProperties;
-	}
-
-	[CRepr]
-	public struct VkDrmFormatModifierProperties2EXT
-	{
-		public uint64 drmFormatModifier;
-		public uint32 drmFormatModifierPlaneCount;
-		public uint64 drmFormatModifierTilingFeatures;
-	}
-
-	[CRepr]
-	public struct VkAndroidHardwareBufferFormatProperties2ANDROID
-	{
-		public VkStructureType sType;
-		public void* pNext;
-		public VkFormat format;
-		public uint64 externalFormat;
-		public uint64 formatFeatures;
-		public VkComponentMapping samplerYcbcrConversionComponents;
-		public VkSamplerYcbcrModelConversion suggestedYcbcrModel;
-		public VkSamplerYcbcrRange suggestedYcbcrRange;
-		public VkChromaLocation suggestedXChromaOffset;
-		public VkChromaLocation suggestedYChromaOffset;
-	}
-
-	[CRepr]
-	public struct VkPipelineRenderingCreateInfoKHR
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PIPELINE_RENDERING_CREATE_INFO_KHR;
-		public void* pNext;
-		public uint32 viewMask;
-		public uint32 colorAttachmentCount;
-		public VkFormat* pColorAttachmentFormats;
-		public VkFormat depthAttachmentFormat;
-		public VkFormat stencilAttachmentFormat;
-	}
-
-	[CRepr]
-	public struct VkRenderingInfoKHR
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_RENDERING_INFO_KHR;
-		public void* pNext;
-		public VkRenderingFlagsKHR flags;
-		public VkRect2D renderArea;
-		public uint32 layerCount;
-		public uint32 viewMask;
-		public uint32 colorAttachmentCount;
-		public VkRenderingAttachmentInfoKHR* pColorAttachments;
-		public VkRenderingAttachmentInfoKHR* pDepthAttachment;
-		public VkRenderingAttachmentInfoKHR* pStencilAttachment;
-	}
-
-	[CRepr]
-	public struct VkRenderingAttachmentInfoKHR
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_RENDERING_ATTACHMENT_INFO_KHR;
-		public void* pNext;
-		public VkImageView imageView;
-		public VkImageLayout imageLayout;
-		public VkResolveModeFlags resolveMode;
-		public VkImageView resolveImageView;
-		public VkImageLayout resolveImageLayout;
-		public VkAttachmentLoadOp loadOp;
-		public VkAttachmentStoreOp storeOp;
-		public VkClearValue clearValue;
-	}
-
-	[CRepr]
-	public struct VkRenderingFragmentShadingRateAttachmentInfoKHR
-	{
-		public VkStructureType sType;
-		public void* pNext;
-		public VkImageView imageView;
-		public VkImageLayout imageLayout;
-		public VkExtent2D shadingRateAttachmentTexelSize;
-	}
-
-	[CRepr]
-	public struct VkRenderingFragmentDensityMapAttachmentInfoEXT
-	{
-		public VkStructureType sType;
-		public void* pNext;
-		public VkImageView imageView;
-		public VkImageLayout imageLayout;
-	}
-
-	[CRepr]
-	public struct VkPhysicalDeviceDynamicRenderingFeaturesKHR
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DYNAMIC_RENDERING_FEATURES_KHR;
-		public void* pNext;
-		public VkBool32 dynamicRendering;
-	}
-
-	[CRepr]
-	public struct VkCommandBufferInheritanceRenderingInfoKHR
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_RENDERING_INFO_KHR;
-		public void* pNext;
-		public VkRenderingFlagsKHR flags;
-		public uint32 viewMask;
-		public uint32 colorAttachmentCount;
-		public VkFormat* pColorAttachmentFormats;
-		public VkFormat depthAttachmentFormat;
-		public VkFormat stencilAttachmentFormat;
-		public VkSampleCountFlags rasterizationSamples;
-	}
-
-	[CRepr]
-	public struct VkAttachmentSampleCountInfoAMD
-	{
-		public VkStructureType sType;
-		public void* pNext;
-		public uint32 colorAttachmentCount;
-		public VkSampleCountFlags* pColorAttachmentSamples;
-		public VkSampleCountFlags depthStencilAttachmentSamples;
-	}
-
-	[CRepr]
-	public struct VkMultiviewPerViewAttributesInfoNVX
-	{
-		public VkStructureType sType;
-		public void* pNext;
-		public VkBool32 perViewAttributes;
-		public VkBool32 perViewAttributesPositionXOnly;
-	}
-
-	[CRepr]
-	public struct VkPhysicalDeviceImageViewMinLodFeaturesEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_VIEW_MIN_LOD_FEATURES_EXT;
-		public void* pNext;
-		public VkBool32 minLod;
-	}
-
-	[CRepr]
-	public struct VkImageViewMinLodCreateInfoEXT
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_IMAGE_VIEW_MIN_LOD_CREATE_INFO_EXT;
-		public void* pNext;
-		public float minLod;
-	}
-
-	[CRepr]
-	public struct VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesARM
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_FEATURES_ARM;
-		public void* pNext;
-		public VkBool32 rasterizationOrderColorAttachmentAccess;
-		public VkBool32 rasterizationOrderDepthAttachmentAccess;
-		public VkBool32 rasterizationOrderStencilAttachmentAccess;
-	}
-
-	[CRepr]
-	public struct VkPhysicalDeviceLinearColorAttachmentFeaturesNV
-	{
-		public VkStructureType sType = .VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINEAR_COLOR_ATTACHMENT_FEATURES_NV;
-		public void* pNext;
-		public VkBool32 linearColorAttachment;
 	}
 
 }

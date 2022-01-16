@@ -1,5 +1,5 @@
 FileVersion = 1
-Projects = {"Sedulous.Bindings.Vulkan" = {Path = "./code/Sedulous.Bindings.Vulkan"}, VulkanTriangle = {Path = "./code/VulkanTriangle"}}
+Projects = {"Sedulous.Bindings.Vulkan" = {Path = "./code/Sedulous.Bindings.Vulkan"}, VulkanTriangle = {Path = "./code/VulkanTriangle"}, SDL2 = "*"}
 
 [Workspace]
 StartupProject = "VulkanTriangle"

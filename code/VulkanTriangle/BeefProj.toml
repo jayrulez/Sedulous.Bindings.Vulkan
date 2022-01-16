@@ -1,5 +1,5 @@
 FileVersion = 1
-Dependencies = {corlib = "*", "Sedulous.Bindings.Vulkan" = "*"}
+Dependencies = {corlib = "*", "Sedulous.Bindings.Vulkan" = "*", SDL2 = "*"}
 
 [Project]
 Name = "VulkanTriangle"

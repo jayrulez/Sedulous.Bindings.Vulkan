@@ -2,6 +2,14 @@ using Sedulous.Bindings.Vulkan;
 using System;
 namespace VulkanTriangle
 {
+	public static
+	{
+		public static VkMemoryType GetMemoryType(this VkPhysicalDeviceMemoryProperties memoryProperties, uint32 index)
+		{
+			return memoryProperties.memoryTypes[index];
+		}
+	}
+
 	static class Helpers
 	{
 		public static uint32 Version(uint32 major, uint32 minor, uint32 patch)
@@ -11,10 +19,10 @@ namespace VulkanTriangle
 
 		public static void CheckErrors(VkResult result)
 		{
-		    if (result != VkResult.VK_SUCCESS)
-		    {
-		        Runtime.FatalError(scope $"Error: {result}");
-		    }
+			if (result != VkResult.VK_SUCCESS)
+			{
+				Runtime.FatalError(scope $"Error: {result}");
+			}
 		}
 	}
 }

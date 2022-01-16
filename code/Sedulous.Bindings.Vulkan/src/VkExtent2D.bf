@@ -27,7 +27,7 @@ namespace Sedulous.Bindings.Vulkan
 		/// </summary>
 		/// <param name="width">The width component of the extent.</param>
 		/// <param name="height">The height component of the extent.</param>
-		public this(int width, int height)
+		public this(int32 width, int32 height)
 		{
 			this.width = (uint32)width;
 			this.height = (uint32)height;

@@ -41,21 +41,10 @@ namespace Sedulous.Bindings.Vulkan
 
 			if (funcPtr != null)
 			{
-				var x = &funcPtr;
-
-				var y = funcPtr;
-
-				var z = (T*)&funcPtr;
-
-				var w = **(T**)&funcPtr;
-
-				var g = (T*)(void*)(int*)&funcPtr;
-				var h = *(T*)(void*)(int*)&funcPtr;
-
-				//var t = (T)&funcPtr;
-				field = (T)*(T*)(void*)(int*)&funcPtr;//*(T*)(void*)(int)funcPtr;//(T)**(T**)&funcPtr;
+				field = *(T*)(void*)(int*)&funcPtr;
 			} else
 			{
+				//Console.WriteLine("Error loading function");
 				field = default;
 				//Console.WriteLine($"Error loading function {name}");
 			}

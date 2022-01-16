@@ -2,38 +2,38 @@ using System;
 
 namespace Sedulous.Bindings.Vulkan
 {
-	public function void PFN_vkInternalAllocationNotification(
+	typealias PFN_vkInternalAllocationNotification = function void(
 		void* pUserData,
 		uint size,
 		VkInternalAllocationType allocationType,
 		VkSystemAllocationScope allocationScope);
 
-	public function void PFN_vkInternalFreeNotification(
+	typealias PFN_vkInternalFreeNotification = function void(
 		void* pUserData,
 		uint size,
 		VkInternalAllocationType allocationType,
 		VkSystemAllocationScope allocationScope);
 
-	public function void* PFN_vkReallocationFunction(
+	typealias PFN_vkReallocationFunction = function void*(
 		void* pUserData,
 		void* pOriginal,
 		uint size,
 		uint alignment,
 		VkSystemAllocationScope allocationScope);
 
-	public function void* PFN_vkAllocationFunction(
+	typealias PFN_vkAllocationFunction = function void*(
 		void* pUserData,
 		uint size,
 		uint alignment,
 		VkSystemAllocationScope allocationScope);
 
-	public function void PFN_vkFreeFunction(
+	typealias PFN_vkFreeFunction = function void(
 		void* pUserData,
 		void* pMemory);
 
-	public function void PFN_vkVoidFunction();
+	typealias PFN_vkVoidFunction = function void();
 
-	public function VkBool32 PFN_vkDebugReportCallbackEXT(
+	typealias PFN_vkDebugReportCallbackEXT = function VkBool32(
 		uint32 flags,
 		VkDebugReportObjectTypeEXT objectType,
 		uint64 object,
@@ -43,13 +43,13 @@ namespace Sedulous.Bindings.Vulkan
 		char8* pMessage,
 		void* pUserData);
 
-	public function VkBool32 PFN_vkDebugUtilsMessengerCallbackEXT(
+	typealias PFN_vkDebugUtilsMessengerCallbackEXT = function VkBool32(
 		VkDebugUtilsMessageSeverityFlagsEXT messageSeverity,
 		uint32 messageTypes,
 		VkDebugUtilsMessengerCallbackDataEXT* pCallbackData,
 		void* pUserData);
 
-	public function void PFN_vkDeviceMemoryReportCallbackEXT(
+	typealias PFN_vkDeviceMemoryReportCallbackEXT = function void(
 		VkDeviceMemoryReportCallbackDataEXT* pCallbackData,
 		void* pUserData);
 
