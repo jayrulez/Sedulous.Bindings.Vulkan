@@ -183,11 +183,13 @@ namespace VulkanTriangle
 					basePipelineIndex = -1 // Optional
 				};
 
-			result = VulkanNative.vkCreateGraphicsPipelines(device, 0, 1, &pipelineInfo, null, &graphicsPipeline);
+			
+			result = VulkanNative.vkCreateGraphicsPipelines(device, .Null, 1, &pipelineInfo, null, &graphicsPipeline);
 			Helpers.CheckErrors(result);
 
 			VulkanNative.vkDestroyShaderModule(device, fragShaderModule, null);
 			VulkanNative.vkDestroyShaderModule(device, vertShaderModule, null);
+			
 		}
 	}
 }

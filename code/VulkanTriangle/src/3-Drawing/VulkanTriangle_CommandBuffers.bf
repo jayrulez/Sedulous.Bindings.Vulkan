@@ -35,10 +35,7 @@ namespace VulkanTriangle
 		        commandBufferCount = (uint32)commandBuffers.Count,
 		    };
 
-		    VkCommandBuffer* commandBuffersPtr = &this.commandBuffers[0];
-		    {
-		        Helpers.CheckErrors(VulkanNative.vkAllocateCommandBuffers(this.device, &allocInfo, commandBuffersPtr));
-		    }
+		    Helpers.CheckErrors(VulkanNative.vkAllocateCommandBuffers(this.device, &allocInfo, this.commandBuffers.Ptr));
 
 		    // Begin
 		    for (int i = 0; i < this.commandBuffers.Count; i++)

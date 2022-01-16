@@ -65,10 +65,8 @@ namespace VulkanTriangle
 #endif
 
 		    
-		    {
-				VkInstance* instancePtr = &instance;
-		        Helpers.CheckErrors(VulkanNative.vkCreateInstance(&createInfo, null, instancePtr));
-		    }
+		    Helpers.CheckErrors(VulkanNative.vkCreateInstance(&createInfo, null, &instance));
+			VulkanNative.LoadFuncionPointers(instance);
 		}
 
 		private void GetAllInstanceExtensionsAvailables()

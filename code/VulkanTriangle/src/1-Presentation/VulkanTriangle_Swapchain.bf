@@ -39,10 +39,7 @@ namespace VulkanTriangle
 		    if (formatCount != 0)
 		    {
 		        details.formats = new VkSurfaceFormatKHR[formatCount];
-		        VkSurfaceFormatKHR* formatsPtr = details.formats.Ptr;
-		        {
-		            Helpers.CheckErrors(VulkanNative.vkGetPhysicalDeviceSurfaceFormatsKHR(physicalDevice, surface, &formatCount, formatsPtr));
-		        }
+		        Helpers.CheckErrors(VulkanNative.vkGetPhysicalDeviceSurfaceFormatsKHR(physicalDevice, surface, &formatCount, details.formats.Ptr));
 		    }
 
 		    // Present Modes
@@ -52,10 +49,7 @@ namespace VulkanTriangle
 		    if (presentModeCount != 0)
 		    {
 		        details.presentModes = new VkPresentModeKHR[presentModeCount];
-		        VkPresentModeKHR* presentModesPtr = details.presentModes.Ptr;
-		        {
-		            Helpers.CheckErrors(VulkanNative.vkGetPhysicalDeviceSurfacePresentModesKHR(physicalDevice, surface, &presentModeCount, presentModesPtr));
-		        }
+		        Helpers.CheckErrors(VulkanNative.vkGetPhysicalDeviceSurfacePresentModesKHR(physicalDevice, surface, &presentModeCount, details.presentModes.Ptr));
 		    }
 
 		    //return details;
@@ -122,7 +116,7 @@ namespace VulkanTriangle
 		        imageCount = swapChainSupport.capabilities.maxImageCount;
 		    }
 
-		    VkSwapchainCreateInfoKHR createInfo = VkSwapchainCreateInfoKHR();
+		    VkSwapchainCreateInfoKHR createInfo = .();
 		    createInfo.sType = VkStructureType.VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR;
 		    createInfo.surface = surface;
 		    createInfo.minImageCount = imageCount;
@@ -138,7 +132,7 @@ namespace VulkanTriangle
 		    if (indices.graphicsFamily != indices.presentFamily)
 		    {
 		        createInfo.imageSharingMode = VkSharingMode.VK_SHARING_MODE_CONCURRENT;
-		        createInfo.queueFamilyIndexCount = 2;
+		        createInfo.queueFamilyIndexCount = queueFamilyIndices.Count;
 		        createInfo.pQueueFamilyIndices = &queueFamilyIndices;
 		    }
 		    else
@@ -151,20 +145,14 @@ namespace VulkanTriangle
 		    createInfo.compositeAlpha = VkCompositeAlphaFlagsKHR.VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR;
 		    createInfo.presentMode = presentMode;
 		    createInfo.clipped = true;
-		    createInfo.oldSwapchain = 0;
+		    createInfo.oldSwapchain = .Null;
 
-		    VkSwapchainKHR* swapChainPtr = &swapChain;
-		    {
-		        Helpers.CheckErrors(VulkanNative.vkCreateSwapchainKHR(device, &createInfo, null, swapChainPtr));
-		    }
+		    Helpers.CheckErrors(VulkanNative.vkCreateSwapchainKHR(device, &createInfo, null, &swapChain));
 
 		    // SwapChain Images
 		    VulkanNative.vkGetSwapchainImagesKHR(device, swapChain, &imageCount, null);
 		    this.swapChainImages = new VkImage[imageCount];
-		    VkImage* swapChainImagesPtr = this.swapChainImages.Ptr;
-		    {
-		        VulkanNative.vkGetSwapchainImagesKHR(device, swapChain, &imageCount, swapChainImagesPtr);
-		    }
+		    VulkanNative.vkGetSwapchainImagesKHR(device, swapChain, &imageCount, this.swapChainImages.Ptr);
 
 		    this.swapChainImageFormat = surfaceFormat.format;
 		    this.swapChainExtent = extent;
