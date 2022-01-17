@@ -6,104 +6,36 @@ namespace VulkanTriangle
 {
 	class VulkanTriangle
 	{
-        const uint WIDTH = 800;
-        const uint HEIGHT = 600;
-
-		private SDL.Window* window;
-		private void* NativeWindow;
-
-		private void InitWindow(){
-			
-			const bool visible = true;
-			String title = scope String("Hello");
-
-
-			if (SDL.Init(.Everything) < 0)
-			{
-				String errorMessage = scope String();
-				errorMessage.AppendF("SDL initialization failed: {0}", SDL.GetError());
-				Runtime.FatalError(errorMessage);
-			}
-
-			SDL.WindowFlags flags = (visible ? .Shown : .Hidden) | SDL.WindowFlags.Resizable | SDL.WindowFlags.OpenGL;
-
-			window = SDL.CreateWindow(title, .Undefined, .Undefined, (int32)WIDTH, (int32)HEIGHT, flags);
-			SDL.GL_SetAttribute(SDL.SDL_GLAttr.GL_CONTEXT_PROFILE_MASK, 1);
-			if (window == null)
-			{
-				Runtime.FatalError("Failed to create SDL window.");
-			}
-
-			SDL.SDL_SysWMinfo info = .();
-			SDL.GetVersion(out info.version);
-			SDL.GetWindowWMInfo(window, ref info);
-			SDL.SDL_SYSWM_TYPE subsystem = info.subsystem;
-			switch (subsystem) {
-			case SDL.SDL_SYSWM_TYPE.SDL_SYSWM_WINDOWS:
-				NativeWindow = (void*)(int)info.info.win.window;
-				break;
-
-			case SDL.SDL_SYSWM_TYPE.SDL_SYSWM_UNKNOWN:
-				fallthrough;
-			default:
-				Runtime.FatalError("Subsystem not currently supported.");
-			}
-		}
-
 		private void InitVulkan()
 		{
-		    this.CreateInstance();
+			this.CreateInstance();
 
-		    this.SetupDebugMessenger();
+			this.SetupDebugMessenger();
 
-		    this.CreateSurface();
+			this.CreateSurface();
 
-		    this.PickPhysicalDevice();
+			this.PickPhysicalDevice();
 
-		    this.CreateLogicalDevice();
+			this.CreateLogicalDevice();
 
-		    this.CreateSwapChain();
+			this.CreateSwapChain();
 
-		    this.CreateImageViews();
+			this.CreateImageViews();
 
-		    this.CreateRenderPass();
+			this.CreateRenderPass();
 
-		    this.CreateGraphicsPipeline();
+			this.CreateGraphicsPipeline();
 
-		    this.CreateFramebuffers();
+			this.CreateFramebuffers();
 
-		    this.CreateCommandPool();
+			this.CreateCommandPool();
 
-		    this.CreateCommandBuffers();
+			this.CreateCommandBuffers();
 
-		    this.CreateSemaphores();
+			this.CreateSemaphores();
 		}
 
-		private void MainLoop()
-		{
-			bool running = true;
-
-			SDL.Event ev = .();
-
-			SDL.PumpEvents();
-			while (running)
-			{
-				while (SDL.PollEvent(out ev) != 0)
-				{
-					this.OnEvent(ev);
-
-					if (ev.type == .Quit)
-					{
-						running = false;
-					}
-				}
-		        this.DrawFrame();
-			}
-
-			Helpers.CheckErrors(VulkanNative.vkDeviceWaitIdle(this.device));
-		}
-
-		private void CleanUp()
+		private void CleanUpVulkan()
 		{
 			delete commandBuffers;
 
@@ -114,7 +46,7 @@ namespace VulkanTriangle
 
 			for (var framebuffer in this.swapChainFramebuffers)
 			{
-			    VulkanNative.vkDestroyFramebuffer(this.device, framebuffer, null);
+				VulkanNative.vkDestroyFramebuffer(this.device, framebuffer, null);
 			}
 			delete this.swapChainFramebuffers;
 
@@ -126,7 +58,7 @@ namespace VulkanTriangle
 
 			for (var imageView in this.swapChainImageViews)
 			{
-			    VulkanNative.vkDestroyImageView(this.device, imageView, null);
+				VulkanNative.vkDestroyImageView(this.device, imageView, null);
 			}
 			delete this.swapChainImageViews;
 			delete swapChainImages;
@@ -140,26 +72,24 @@ namespace VulkanTriangle
 			VulkanNative.vkDestroySurfaceKHR(this.instance, this.surface, null);
 
 			VulkanNative.vkDestroyInstance(this.instance, null);
-
-			if (window != null)
-			{
-				SDL.DestroyWindow(window);
-				window = null;
-			}
-			//////////////////////////////////////////////////////////////
-
-			SDL.Quit();
 		}
-		
+
 		public void Run()
 		{
-		    this.InitWindow();
+			this.InitWindow();
 
-		    this.InitVulkan();
+			this.InitVulkan();
 
-		    this.MainLoop();
+			this.MainLoop(
+				scope () => { this.DrawFrame(); },
+				scope () =>
+				{
+					Helpers.CheckErrors(VulkanNative.vkDeviceWaitIdle(this.device));
+				});
 
-		    this.CleanUp();
+			this.CleanUpVulkan();
+
+			this.DestroyWindow();
 		}
 	}
 }

@@ -11,7 +11,7 @@ namespace VulkanTriangle
 
 		void CreateShaderModule(List<uint8> code, ref VkShaderModule shaderModule)
 		{
-			VkShaderModuleCreateInfo createInfo = VkShaderModuleCreateInfo();
+			VkShaderModuleCreateInfo createInfo = .();
 			createInfo.sType = VkStructureType.VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO;
 			createInfo.codeSize = (uint32)code.Count;
 			createInfo.pCode = (uint32*)code.Ptr;
@@ -49,7 +49,7 @@ namespace VulkanTriangle
 					pName = "main"
 				};
 
-			VkPipelineShaderStageCreateInfo[] shaderStages = scope VkPipelineShaderStageCreateInfo[] (vertShaderStageInfo, fragShaderStageInfo);
+			VkPipelineShaderStageCreateInfo[] shaderStages = scope VkPipelineShaderStageCreateInfo[](vertShaderStageInfo, fragShaderStageInfo);
 
 			// Vertex Input
 			VkPipelineVertexInputStateCreateInfo vertexInputInfo = .()
@@ -183,13 +183,12 @@ namespace VulkanTriangle
 					basePipelineIndex = -1 // Optional
 				};
 
-			
+
 			result = VulkanNative.vkCreateGraphicsPipelines(device, .Null, 1, &pipelineInfo, null, &graphicsPipeline);
 			Helpers.CheckErrors(result);
 
 			VulkanNative.vkDestroyShaderModule(device, fragShaderModule, null);
 			VulkanNative.vkDestroyShaderModule(device, vertShaderModule, null);
-			
 		}
 	}
 }
