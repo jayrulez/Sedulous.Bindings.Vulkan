@@ -32,12 +32,6 @@ namespace VulkanTriangle
 
 		    // Extensions
 		    this.GetAllInstanceExtensionsAvailables();
-
-		    /*char8** extensionsToBytesArray = scope char8*[extensions.Count]*;
-		    for (int i = 0; i < extensions.Count; i++)
-		    {
-		        extensionsToBytesArray[i] = extensions[i];
-		    }*/
 		    createInfo.enabledExtensionCount = (uint32)extensions.Count;
 		    createInfo.ppEnabledExtensionNames = &extensions;
 
@@ -45,12 +39,6 @@ namespace VulkanTriangle
 #if DEBUG
 		    if (this.CheckValidationLayerSupport())
 		    {
-		        /*char8** layersToBytesArray = scope char8*[validationLayers.Count]*;
-		        for (int i = 0; i < validationLayers.Count; i++)
-		        {
-		            layersToBytesArray[i] = validationLayers[i];
-		        }*/
-
 		        createInfo.enabledLayerCount = (uint32)validationLayers.Count;
 		        createInfo.ppEnabledLayerNames = &validationLayers;
 		    }
