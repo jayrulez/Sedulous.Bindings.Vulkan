@@ -25,7 +25,7 @@ namespace VulkanTriangle
 				Runtime.FatalError(errorMessage);
 			}
 
-			SDL.WindowFlags flags = (visible ? .Shown : .Hidden) | SDL.WindowFlags.Resizable | SDL.WindowFlags.OpenGL;
+			SDL.WindowFlags flags = (visible ? .Shown : .Hidden) /*| SDL.WindowFlags.Resizable*/ | SDL.WindowFlags.Vulkan;
 
 			window = SDL.CreateWindow(title, .Undefined, .Undefined, (int32)WIDTH, (int32)HEIGHT, flags);
 			SDL.GL_SetAttribute(SDL.SDL_GLAttr.GL_CONTEXT_PROFILE_MASK, 1);
