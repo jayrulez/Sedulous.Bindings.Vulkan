@@ -4,6 +4,7 @@ namespace Sedulous.Bindings.Vulkan
 	/// <summary>
 	/// A boolean value stored in a 4-byte unsigned integer.
 	/// </summary>
+	[CRepr]
 	struct VkBool32 : IEquatable<VkBool32>
 	{
 		/// <summary>
